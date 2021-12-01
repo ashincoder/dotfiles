@@ -1,0 +1,6 @@
+.zinit
+.p10k.zsh
+.zcompdump
+.zcompdump.zwc
+.zshrc.zwc
+*.zwc
