@@ -1,8 +1,8 @@
 Apps = {
 
-	terminal = "alacritty",
+	terminal = "st",
 
-	editor = "alacritty -e nvim",
+	editor = "st -e nvim",
 
 	explorer = "nemo",
 

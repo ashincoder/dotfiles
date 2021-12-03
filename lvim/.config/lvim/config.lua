@@ -1,14 +1,12 @@
 -- [[ GENERAL SETTINGS ]] --
 
+lvim.colorscheme = "onedarker"
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
 
 -- [[ KEYMAPPINGS ]] --
 
 lvim.leader = "space"
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-
 ---@usage Unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 
@@ -16,16 +14,12 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 --@usage Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["n"] = {
+	name = "Neogen",
+	c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
+	f = { "<cmd>lua require('neogen').generate({ type = 'func'})<CR>", "Function Documentation" },
+	t = { "<cmd>lua require('neogen').generate({ type = 'type'})<CR>", "Type Documentation" },
+}
 
 -- [[ TREESITTER ]] --
 
@@ -58,8 +52,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- [[ LSP ]] --
 
-lvim.lsp.automatic_servers_installation = true
-
 -- Lazy load "LSP" setup
 lvim.lsp.templates_dir = join_paths(get_runtime_dir(), "after", "ftplugin")
 
@@ -75,6 +67,24 @@ lvim.plugins = {
 			require("ashin.neorg")
 		end,
 		requires = "nvim-neorg/neorg-telescope",
+	},
+	-- Annotation generator
+	{
+		"danymat/neogen",
+		event = "InsertEnter",
+		config = function()
+			require("neogen").setup({
+				enabled = true,
+			})
+		end,
+	},
+	-- Colorize HEX codes
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("ashin.colorizer")
+		end,
+		event = "BufRead",
 	},
 }
 
