@@ -92,11 +92,6 @@ return {
    },
 
    {
-      "ray-x/cmp-treesitter",
-      after = "nvim-treesitter",
-   },
-
-   {
       "hrsh7th/cmp-path",
       after = "cmp-buffer",
    },
@@ -121,7 +116,6 @@ return {
    -- Syntax parser and more
    {
       "nvim-treesitter/nvim-treesitter",
-      branch = "0.5-compat",
       run = ":TSUpdate",
       config = function()
          require "modules.configs.treesitter"
@@ -220,13 +214,15 @@ return {
    -- Which key
    {
       "folke/which-key.nvim",
-      keys = "<space>",
       config = function()
          require("which-key").setup {
             window = {
                border = "single",
             },
          }
+      end,
+      setup = function()
+         require("core.utils").lazy_load "which-key.nvim"
       end,
    },
 
@@ -247,6 +243,14 @@ return {
       cmd = "Neogit",
       setup = function()
          require("core.mappings").neogit()
+      end,
+   },
+
+   -- Notifier for neovim
+   {
+      "rcarriga/nvim-notify",
+      config = function()
+         require "modules.configs.notify"
       end,
    },
 

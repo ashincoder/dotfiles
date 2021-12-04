@@ -91,6 +91,7 @@ lvim.plugins = {
 -- [[ PLUGIN OVERRIDES ]] --
 
 lvim.builtin.terminal.active = true
+lvim.builtin.notify.active = true
 
 -- [[ AUTOCOMMANDS ]] --
 -- lvim.autocommands.custom_groups = {

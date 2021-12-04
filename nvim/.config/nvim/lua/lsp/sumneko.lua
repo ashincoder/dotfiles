@@ -8,7 +8,6 @@ M.setup = function(on_attach, capabilities)
    lspconfig.sumneko_lua.setup {
       on_attach = on_attach,
       capabilities = capabilities,
-      cmd = { "lua-language-server" },
       settings = {
          Lua = {
             runtime = {

@@ -104,7 +104,6 @@ cmp.setup {
       { name = "buffer" },
       { name = "path" },
       { name = "nvim_lua" },
-      { name = "treesitter" },
       { name = "orgmode" },
       { name = "neorg" },
    },
@@ -112,12 +111,11 @@ cmp.setup {
       format = function(entry, item)
          item.kind = string.format("%s %s", get_kind(item.kind), item.kind)
          item.menu = ({
-            nvim_lsp = " ",
-            luasnip = " ",
-            buffer = "﬘ ",
-            nvim_lua = " ",
-            path = " ",
-            treesitter = " ",
+            nvim_lsp = "(LSP)",
+            path = "(Path)",
+            luasnip = "(Snippet)",
+            luasnip = "(Snippet)",
+            buffer = "(Buffer)",
          })[entry.source.name]
          item.dup = ({
             buffer = 1,

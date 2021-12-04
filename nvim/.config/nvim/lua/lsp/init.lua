@@ -59,18 +59,40 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+-- Setting up servers installed
 lsp_installer.on_server_ready(function(server)
    -- Custom on_attach and capabilities
    local default_opts = {
       on_attach = on_attach,
       capabilities = capabilities,
    }
-   -- Server Options
+   -- Custom server options for sumneko_lua
    local server_opts = {
       ["sumneko_lua"] = function()
-         return require("lua-dev").setup {
-            lspconfig = default_opts,
-         }
+         return vim.tbl_deep_extend("force", { default_opts }, {
+            settings = {
+               Lua = {
+                  runtime = {
+                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                     version = "LuaJIT",
+                     -- Setup your lua path
+                     path = vim.split(package.path, ";"),
+                  },
+                  diagnostics = {
+                     -- Get the language server to recognize the `vim` global
+                     globals = { "vim" },
+                  },
+                  workspace = {
+                     -- Make the server aware of Neovim runtime files
+                     library = {
+                        [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                     },
+                     maxPreload = 100000,
+                     preloadFileSize = 1000,
+                  },
+               },
+            },
+         })
       end,
    }
    server:setup((server_opts[server.name] and server_opts[server.name]() or default_opts))
