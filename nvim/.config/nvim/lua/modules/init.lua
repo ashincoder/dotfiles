@@ -130,7 +130,7 @@ return {
          require("core.mappings").comment()
       end,
       config = function()
-         require("Comment").setup()
+         require "modules.configs.comment"
       end,
    },
 
