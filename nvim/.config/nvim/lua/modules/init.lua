@@ -16,8 +16,6 @@ return {
    { "nathom/filetype.nvim" },
 
    -- Colorscheme
-   { "tiagovla/tokyodark.nvim" },
-
    { "NTBBloodbath/doom-one.nvim" },
 
    -- Statusline
@@ -160,6 +158,14 @@ return {
    },
 
    {
+      "williamboman/nvim-lsp-installer",
+      requires = {
+         "folke/lua-dev.nvim",
+      },
+      event = "BufRead",
+   },
+
+   {
       "jose-elias-alvarez/null-ls.nvim",
       after = "nvim-lspconfig",
    },
@@ -167,12 +173,6 @@ return {
    {
       "hrsh7th/cmp-nvim-lsp",
       after = "nvim-lspconfig",
-   },
-
-   {
-      "tami5/lspsaga.nvim",
-      branch = "nvim51",
-      after = "null-ls.nvim",
    },
 
    {

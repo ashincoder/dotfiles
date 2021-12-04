@@ -26,7 +26,7 @@ local sources = {
 }
 
 local M = {}
-M.setup = function(on_attach)
+M.setup = function(on_attach, capabilities)
    null_ls.config {
       -- debug = true,
       sources = sources,
@@ -34,6 +34,7 @@ M.setup = function(on_attach)
    require("lspconfig")["null-ls"].setup {
       autostart = true,
       on_attach = on_attach,
+      capabilities = capabilities,
    }
 end
 

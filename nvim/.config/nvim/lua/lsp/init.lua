@@ -1,21 +1,12 @@
 local handlers = require "lsp.handlers"
 local null_ls = require "lsp.null_ls"
-local sumneko = require "lsp.sumneko"
--- Pcalling lspconfig
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-   return
-end
+local lsp_installer = require "nvim-lsp-installer"
 
-local signs = { Error = "", Information = "", Hint = "", Warning = "" }
+local signs = { Error = "", Info = "", Hint = "", Warn = "" }
 
-for severity, icon in pairs(signs) do
-   local highlight = "LspDiagnosticsSign" .. severity
-   vim.fn.sign_define(highlight, {
-      text = icon,
-      texthl = highlight,
-      numhl = highlight,
-   })
+for type, icon in pairs(signs) do
+   local hl = "DiagnosticSign" .. type
+   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 local function document_highlight(client)
@@ -45,18 +36,16 @@ local function lsp_keybindings(bufnr)
    local opts = { noremap = true, silent = true }
 
    -- See `:help vim.lsp.*` for documentation on any of the below functions
-   -- Custom
    set_key("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-   set_key("n", "<leader>cr", "<cmd>:Lspsaga rename<CR>", opts)
-   set_key("n", "K", "<cmd>:Lspsaga hover_doc<CR>", opts) -- Hover Doc
-   set_key("n", "[d", "<cmd>:Lspsaga diagnostic_jump_next<CR>zz", opts)
-   set_key("n", "]d", "<cmd>:Lspsaga diagnostic_jump_prev<CR>zz", opts)
-   set_key("n", "ca", "<cmd>:Lspsaga code_action<CR>", opts)
-   set_key("n", "gI", "<cmd>:Lspsaga implement<CR>", opts)
-   set_key("n", "gr", "<cmd>:Lspsaga lsp_finder<CR>", opts)
-   set_key("n", "gd", "<cmd>:Lspsaga preview_definition<CR>", opts) -- Definition
-   set_key("n", "gD", "<cmd>:lua vim.lsp.buf.definition()<CR>", opts) -- Definition
-   set_key("n", "ge", "<cmd>:Lspsaga show_line_diagnostics<CR>", opts)
+   set_key("n", "<leader>cr", "<cmd>:lua vim.lsp.buf.rename()<CR>", opts)
+   set_key("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>", opts) -- Hover Doc
+   set_key("n", "[d", "<cmd>:lua vim.lsp.diagnostic.goto_next<CR>zz", opts)
+   set_key("n", "]d", "<cmd>:lua vim.lsp.diagnostic.goto_prev<CR>zz", opts)
+   set_key("n", "ca", "<cmd>:lua vim.lsp.buf.code_action()<CR>", opts)
+   set_key("n", "gI", "<cmd>:lua vim.lsp.buf.implementation()<CR>", opts)
+   set_key("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>", opts)
+   set_key("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>", opts) -- Definition
+   set_key("n", "ge", "<cmd>:lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opts)
    set_key("n", "gp", "<cmd>lua require('lsp.peek').Peek('definition')<CR>", opts)
 end
 
@@ -70,23 +59,21 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
--- Settings up servers which doesn't require much configuration
-local servers = {
-   "bashls",
-   "clangd",
-   "pyright",
-   "rnix",
-   "vimls",
-   "yamlls",
-}
--- Starting up servers using a for loop
-for _, server in ipairs(servers) do
-   lspconfig[server].setup {
+lsp_installer.on_server_ready(function(server)
+   -- Custom on_attach and capabilities
+   local default_opts = {
       on_attach = on_attach,
       capabilities = capabilities,
    }
-end
+   -- Server Options
+   local server_opts = {
+      ["sumneko_lua"] = function()
+         return require("lua-dev").setup {
+            lspconfig = default_opts,
+         }
+      end,
+   }
+   server:setup((server_opts[server.name] and server_opts[server.name]() or default_opts))
+end)
 
--- Setting up Servers
-sumneko.setup(on_attach, capabilities)
 null_ls.setup(on_attach, capabilities)

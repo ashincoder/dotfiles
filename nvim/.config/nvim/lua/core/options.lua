@@ -85,8 +85,7 @@ options.load_options = function()
    vim.opt.listchars:append "eol:↴"
    vim.opt.listchars:append "space: "
    -- Colorscheme
-   vim.g.tokyodark_transparent_background = true
-   vim.g.colors_name = "tokyodark"
+   vim.g.colors_name = "doom-one"
    for k, v in pairs(opts) do
       vim.opt[k] = v
    end
