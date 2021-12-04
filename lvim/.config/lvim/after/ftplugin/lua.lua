@@ -1,6 +1,3 @@
--- Setup sumenko lua
-require("lvim.lsp.manager").setup("sumneko_lua")
-
 -- Linters for lua
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
