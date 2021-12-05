@@ -20,10 +20,10 @@ return {
 
    -- Statusline
    {
-      "tamton-aquib/staline.nvim",
+      "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         require "modules.configs.staline"
+         require "modules.configs.statusline"
       end,
    },
 
