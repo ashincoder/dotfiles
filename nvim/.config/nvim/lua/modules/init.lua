@@ -33,24 +33,6 @@ return {
       module = "plenary",
    },
 
-   -- More than a fuzzy finder
-   {
-      "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
-      requires = {
-         {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-         },
-      },
-      config = function()
-         require "modules.configs.telescope"
-      end,
-      setup = function()
-         require("core.mappings").telescope()
-      end,
-   },
-
    -- Snippets
    {
       "L3MON4D3/LuaSnip",
@@ -94,6 +76,35 @@ return {
    {
       "hrsh7th/cmp-path",
       after = "cmp-buffer",
+   },
+
+   -- Neovim Lsp
+   {
+      "neovim/nvim-lspconfig",
+      event = "BufRead",
+   },
+
+   {
+      "williamboman/nvim-lsp-installer",
+      event = "BufRead",
+   },
+
+   {
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+   },
+
+   {
+      "hrsh7th/cmp-nvim-lsp",
+      after = "nvim-lspconfig",
+   },
+
+   {
+      "ray-x/lsp_signature.nvim",
+      module = "lsp_signature",
+      config = function()
+         require("modules.configs.others").signature()
+      end,
    },
 
    -- Autopairs
@@ -145,38 +156,6 @@ return {
       end,
    },
 
-   -- Neovim Lsp
-   {
-      "neovim/nvim-lspconfig",
-      event = "BufRead",
-   },
-
-   {
-      "williamboman/nvim-lsp-installer",
-      requires = {
-         "folke/lua-dev.nvim",
-      },
-      event = "BufRead",
-   },
-
-   {
-      "jose-elias-alvarez/null-ls.nvim",
-      after = "nvim-lspconfig",
-   },
-
-   {
-      "hrsh7th/cmp-nvim-lsp",
-      after = "nvim-lspconfig",
-   },
-
-   {
-      "ray-x/lsp_signature.nvim",
-      module = "lsp_signature",
-      config = function()
-         require("modules.configs.others").signature()
-      end,
-   },
-
    -- Orgmode
    {
       "kristijanhusak/orgmode.nvim",
@@ -198,6 +177,24 @@ return {
             end,
          },
       },
+   },
+
+   -- More than a fuzzy finder
+   {
+      "nvim-telescope/telescope.nvim",
+      cmd = "Telescope",
+      requires = {
+         {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
+         },
+      },
+      config = function()
+         require "modules.configs.telescope"
+      end,
+      setup = function()
+         require("core.mappings").telescope()
+      end,
    },
 
    -- Norg Note taking
@@ -249,6 +246,7 @@ return {
    -- Notifier for neovim
    {
       "rcarriga/nvim-notify",
+      event = "BufWinEnter",
       config = function()
          require "modules.configs.notify"
       end,

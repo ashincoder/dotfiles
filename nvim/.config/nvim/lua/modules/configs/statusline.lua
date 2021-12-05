@@ -149,7 +149,7 @@ ins_left {
 ins_left {
    "filename",
    file_status = true,
-   path = 1,
+   path = 0,
    cond = conditions.buffer_not_empty,
    color = { fg = colors.magenta, gui = "bold" },
 }
@@ -157,7 +157,7 @@ ins_left {
 ins_right {
    -- Lsp server name .
    function()
-      local msg = "No Active Lsp"
+      local msg = "nil"
       local clients = vim.lsp.buf_get_clients()
       if next(clients) == nil then
          return msg
