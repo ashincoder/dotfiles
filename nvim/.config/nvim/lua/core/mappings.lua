@@ -75,11 +75,6 @@ M.packer = function()
    map("n", "<leader>ps", ":PackerSync<CR>", opts)
 end
 
-M.comment = function()
-   map("n", "<leader>/", ":lua require('Comment').toggle()<CR>", opts)
-   map("v", "<leader>/", "<ESC><CMD>lua ___comment_gc(vim.fn.visualmode())<CR>", opts)
-end
-
 M.telescope = function()
    map("n", "<leader>f", ":Telescope find_files<CR>", opts)
    map("n", "<leader>ft", ":Telescope treesitter<CR>", opts)

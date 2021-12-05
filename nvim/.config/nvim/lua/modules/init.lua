@@ -137,11 +137,8 @@ return {
    {
       "numToStr/Comment.nvim",
       after = "nvim-treesitter",
-      setup = function()
-         require("core.mappings").comment()
-      end,
       config = function()
-         require "modules.configs.comment"
+         require("Comment").setup()
       end,
    },
 
@@ -206,21 +203,6 @@ return {
          require "modules.configs.neorg"
       end,
       requires = "nvim-neorg/neorg-telescope",
-   },
-
-   -- Which key
-   {
-      "folke/which-key.nvim",
-      config = function()
-         require("which-key").setup {
-            window = {
-               border = "single",
-            },
-         }
-      end,
-      setup = function()
-         require("core.utils").lazy_load "which-key.nvim"
-      end,
    },
 
    -- Zen mode
