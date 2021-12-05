@@ -162,7 +162,7 @@ return {
             diagnostics = true,
             org_hide_leading_stars = true,
             org_ellipsis = " ▼",
-            org_indent_mode = "noindent",
+            -- org_indent_mode = "noindent",
          }
       end,
       requires = {
@@ -229,9 +229,6 @@ return {
    {
       "rcarriga/nvim-notify",
       event = "BufWinEnter",
-      config = function()
-         require "modules.configs.notify"
-      end,
    },
 
    -- Gitsigns and diffs
