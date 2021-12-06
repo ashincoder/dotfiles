@@ -27,6 +27,15 @@ return {
       end,
    },
 
+   --Bufferline
+   {
+      "alvarosevilla95/luatab.nvim",
+      event = "BufWinEnter",
+      config = function()
+         require("luatab").setup {}
+      end,
+   },
+
    -- All important lua functions
    {
       "nvim-lua/plenary.nvim",

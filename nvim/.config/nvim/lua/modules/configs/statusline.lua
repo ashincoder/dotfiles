@@ -44,14 +44,6 @@ local config = {
          inactive = { c = { fg = colors.fg, bg = colors.bg } },
       },
    },
-   tabline = {
-      lualine_a = { "buffers" },
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {},
-   },
    sections = {
       -- these are to remove the defaults
       lualine_a = {},
