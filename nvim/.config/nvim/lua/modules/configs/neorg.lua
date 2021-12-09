@@ -35,6 +35,11 @@ neorg.setup {
             workspace = "gtd",
          },
       },
+      ["core.norg.journal"] = {
+         config = {
+            journal_folder = "diary",
+         },
+      },
       ["core.integrations.treesitter"] = {
          config = {
             highlights = {

@@ -60,7 +60,7 @@ options.load_options = function()
       updatetime = 250,
       foldenable = true,
       laststatus = 2,
-      showtabline = 2,
+      -- showtabline = 2,
    }
    vim.g.did_load_filetypes = 1
    vim.g.mapleader = " "

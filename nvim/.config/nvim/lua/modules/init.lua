@@ -29,10 +29,10 @@ return {
 
    --Bufferline
    {
-      "alvarosevilla95/luatab.nvim",
+      "noib3/cokeline.nvim",
       event = "BufWinEnter",
       config = function()
-         require("luatab").setup {}
+         require("cokeline").setup {}
       end,
    },
 
