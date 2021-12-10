@@ -21,14 +21,14 @@ function plugin_loader:init()
    end
 
    packer.init {
-  git = {
-    clone_timeout = 300, -- 5 mins
-    subcommands = {
-      -- Prevent packer from downloading all branches metadata to reduce cloning cost
-      -- for heavy size plugins like plenary (removed the '--no-single-branch' git flag)
-      install = "clone --depth %i --progress",
-    },
-  },
+      git = {
+         clone_timeout = 300, -- 5 mins
+         subcommands = {
+            -- Prevent packer from downloading all branches metadata to reduce cloning cost
+            -- for heavy size plugins like plenary (removed the '--no-single-branch' git flag)
+            install = "clone --depth %i --progress",
+         },
+      },
       display = {
          open_fn = function()
             return require("packer.util").float { border = "single" }
@@ -43,18 +43,6 @@ function plugin_loader:init()
          enable = true,
       },
    }
-end
-
-function plugin_loader:cache_clear()
-   if vim.fn.delete(compile_path) then
-      print "Cleared Cache"
-   end
-end
-
-function plugin_loader:cache_reset()
-   plugin_loader:cache_clear()
-   require("packer").compile()
-   vim.cmd ":silent! LuaCacheLog"
 end
 
 --- Loops on the given configuration table
