@@ -29,10 +29,12 @@ return {
 
    --Bufferline
    {
-      "noib3/cokeline.nvim",
+      "kdheepak/tabline.nvim",
       event = "BufWinEnter",
       config = function()
-         require("cokeline").setup {}
+         require("tabline").setup {
+            enable = true,
+         }
       end,
    },
 
@@ -206,6 +208,7 @@ return {
    -- Norg Note taking
    {
       "nvim-neorg/neorg",
+      cmd = "Neorg",
       ft = "norg",
       branch = "unstable",
       config = function()
