@@ -15,11 +15,11 @@ neorg.setup {
             dim_code_blocks = true,
          },
       },
-      --[[ ["core.presenter"] = {
+      ["core.presenter"] = {
          config = {
             zen_mode = "zen-mode",
          },
-      }, ]]
+      },
       ["core.integrations.telescope"] = {}, -- Enable the telescope module
       ["core.norg.dirman"] = {
          config = {
@@ -40,7 +40,8 @@ neorg.setup {
             journal_folder = "diary",
          },
       },
-      ["core.integrations.treesitter"] = {
+      ["core.zettelkasten"] = {},
+      --[[ ["core.integrations.treesitter"] = {
          config = {
             highlights = {
                Heading = {
@@ -57,7 +58,7 @@ neorg.setup {
                },
             },
          },
-      },
+      }, ]]
       ["core.norg.completion"] = {
          config = {
             engine = "nvim-cmp",

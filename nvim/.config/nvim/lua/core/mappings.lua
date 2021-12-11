@@ -41,7 +41,7 @@ M.misc = function()
    map("n", "<S-TAB>", ":bnext<CR>", opts)
 
    -- Window Closing
-   map("n", "<leader>cc", ":bdelete<CR>", opts)
+   map("n", "<leader>cc", ":bdelete!<CR>", opts)
    map("n", "<leader>x", ":close<CR>", opts)
 
    -- Resizing Splits
