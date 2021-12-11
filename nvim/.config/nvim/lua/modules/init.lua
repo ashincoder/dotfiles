@@ -125,6 +125,12 @@ return {
       end,
    },
 
+   -- Racket bundle
+   {
+      "wlangstroth/vim-racket",
+      event = "BufRead",
+   },
+
    -- Icons
    {
       "kyazdani42/nvim-web-devicons",

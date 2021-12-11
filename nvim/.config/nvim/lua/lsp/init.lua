@@ -1,6 +1,7 @@
 local handlers = require "lsp.handlers"
 local null_ls = require "lsp.null_ls"
 local lsp_installer = require "nvim-lsp-installer"
+local lspconfig = require "lspconfig"
 
 local signs = { Error = "", Info = "", Hint = "", Warn = "" }
 
@@ -97,5 +98,6 @@ lsp_installer.on_server_ready(function(server)
    }
    server:setup((server_opts[server.name] and server_opts[server.name]() or default_opts))
 end)
+lspconfig.racket_langserver.setup {}
 
 null_ls.setup(on_attach, capabilities)
