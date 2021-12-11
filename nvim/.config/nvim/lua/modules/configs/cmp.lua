@@ -109,7 +109,7 @@ cmp.setup {
    },
    formatting = {
       format = function(entry, item)
-         item.kind = string.format("%s %s", get_kind(item.kind), item.kind)
+         item.kind = string.format("%s", get_kind(item.kind))
          item.menu = ({
             nvim_lsp = "(LSP)",
             path = "(Path)",

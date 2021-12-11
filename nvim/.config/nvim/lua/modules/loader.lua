@@ -3,8 +3,6 @@
 
 local plugin_loader = {}
 
-local compile_path = vim.fn.stdpath "config" .. "/plugin/packer_compiled.lua"
-
 function plugin_loader:init()
    local package_root = vim.fn.stdpath "data" .. "/site/pack"
    local install_path = package_root .. "/packer/opt/packer.nvim"

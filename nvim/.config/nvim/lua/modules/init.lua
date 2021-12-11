@@ -29,12 +29,10 @@ return {
 
    --Bufferline
    {
-      "kdheepak/tabline.nvim",
+      "jose-elias-alvarez/buftabline.nvim",
       event = "BufWinEnter",
       config = function()
-         require("tabline").setup {
-            enable = true,
-         }
+         require("buftabline").setup()
       end,
    },
 

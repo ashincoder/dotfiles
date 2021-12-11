@@ -2,6 +2,7 @@
 -- src: https://github.com/NTBBloodbath/doom-nvim
 --- @class Reloader
 local reloader = {}
+vim.notify = require "notify"
 
 local utils = require "core.utils"
 local config_root = vim.fn.stdpath "config"
@@ -27,9 +28,9 @@ end
 
 local scan_dir = require("plenary.scandir").scan_dir
 
---- Converts a Lua module path into an acceptable Lua module format
---- @param module_path string The path to the module
---- @return string
+---Converts a Lua module path into an acceptable Lua module format
+---@param module_path string The path to the module
+---@return string
 local function path_to_lua_module(module_path)
    local lua_path = string.format("%s%slua", config_root, sep)
 
@@ -45,9 +46,9 @@ local function path_to_lua_module(module_path)
    return module_path
 end
 
---- Gets the runtime files found in the given path
---- @param parent_path string The parent path to look for files
---- @return table
+---Gets the runtime files found in the given path
+---@param parent_path string The parent path to look for files
+---@return table
 local function get_runtime_files(parent_path)
    local runtime_files = {}
 
@@ -100,9 +101,9 @@ local function reload_runtime_files()
    end
 end
 
---- Reload a Lua module
---- @param mod_path string The configuration module path
---- @param quiet boolean If the reloader should send an info log or not
+---Reload a Lua module
+---@param mod_path string The configuration module path
+---@param quiet boolean If the reloader should send an info log or not
 reloader.reload_lua_module = function(mod_path, quiet)
    if mod_path:find "/" then
       mod_path = path_to_lua_module(mod_path)
@@ -124,12 +125,12 @@ reloader.reload_lua_module = function(mod_path, quiet)
    end
 
    if not quiet then
-      print(string.format("Successfully reloaded '%s' module", mod_path))
+      vim.notify(string.format("Successfully reloaded '%s' module", mod_path))
    end
 end
 
---- Reload all Lua modules
---- @param quiet boolean If the reloader should send an info log or not
+---Reload all Lua modules
+---@param quiet boolean If the reloader should send an info log or not
 reloader.reload_lua_modules = function(quiet)
    local paths = vim.fn.glob(config_root .. sep .. "lua", 0, 1)
 
@@ -142,9 +143,10 @@ reloader.reload_lua_modules = function(quiet)
    end
 end
 
---- Reload the plugins definitions modules like doom_modules.lua to automatically
+--- Reload the plugins definitions modules to automatically
 --- install or uninstall plugins on changes
 reloader.reload_plugins_definitions = function()
+   vim.notify "Successfully reloaded modules"
    -- Silently reload plugins modules
    reloader.reload_lua_module("core", true)
    reloader.reload_lua_module("modules", true)
@@ -171,6 +173,7 @@ end
 
 --- Reload all Neovim configurations
 reloader.reload_configs = function()
+   vim.notify "Successfully reloaded config"
    --- Restart running language servers
    if vim.fn.exists ":LspRestart" ~= 0 then
       vim.cmd "silent! LspRestart"
@@ -188,6 +191,7 @@ end
 
 --- Reload Neovim and simulate a new run
 reloader.full_reload = function()
+   vim.notify "Successfully reloaded"
    --- Reload Neovim configurations
    reloader.reload_configs()
 
