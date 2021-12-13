@@ -1,7 +1,5 @@
 local handlers = require "lsp.handlers"
-local null_ls = require "lsp.null_ls"
 local lsp_installer = require "nvim-lsp-installer"
-local lspconfig = require "lspconfig"
 
 local signs = { Error = "", Info = "", Hint = "", Warn = "" }
 
@@ -48,6 +46,7 @@ local function lsp_keybindings(bufnr)
    set_key("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>", opts) -- Definition
    set_key("n", "ge", "<cmd>:lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opts)
    set_key("n", "gp", "<cmd>lua require('lsp.peek').Peek('definition')<CR>", opts)
+   print "Hello"
 end
 
 local on_attach = function(client, bufnr)
@@ -96,5 +95,5 @@ lsp_installer.on_server_ready(function(server)
          })
       end,
    }
-   server:setup((server_opts[server.name] and server_opts[server.name]() or default_opts))
+   server:setup((server_opts[server.name] and default_opts or default_opts))
 end)

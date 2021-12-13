@@ -27,7 +27,7 @@ return {
       end,
    },
 
-   --Bufferline
+   -- Bufferline
    {
       "jose-elias-alvarez/buftabline.nvim",
       event = "BufWinEnter",
