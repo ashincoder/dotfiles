@@ -40,8 +40,7 @@ neorg.setup {
             journal_folder = "diary",
          },
       },
-      ["core.zettelkasten"] = {},
-      --[[ ["core.integrations.treesitter"] = {
+      ["core.integrations.treesitter"] = {
          config = {
             highlights = {
                Heading = {
@@ -58,7 +57,7 @@ neorg.setup {
                },
             },
          },
-      }, ]]
+      },
       ["core.norg.completion"] = {
          config = {
             engine = "nvim-cmp",

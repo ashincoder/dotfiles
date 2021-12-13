@@ -101,6 +101,9 @@ return {
    {
       "jose-elias-alvarez/null-ls.nvim",
       after = "nvim-lspconfig",
+      config = function()
+         require("modules.configs.null_ls").setup()
+      end,
    },
 
    {

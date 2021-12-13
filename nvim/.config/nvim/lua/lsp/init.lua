@@ -98,6 +98,3 @@ lsp_installer.on_server_ready(function(server)
    }
    server:setup((server_opts[server.name] and server_opts[server.name]() or default_opts))
 end)
-lspconfig.racket_langserver.setup {}
-
-null_ls.setup(on_attach, capabilities)
