@@ -46,7 +46,6 @@ local function lsp_keybindings(bufnr)
    set_key("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>", opts) -- Definition
    set_key("n", "ge", "<cmd>:lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opts)
    set_key("n", "gp", "<cmd>lua require('lsp.peek').Peek('definition')<CR>", opts)
-   print "Hello"
 end
 
 local on_attach = function(client, bufnr)

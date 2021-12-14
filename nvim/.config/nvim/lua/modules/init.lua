@@ -217,7 +217,6 @@ return {
       "nvim-neorg/neorg",
       cmd = "Neorg",
       ft = "norg",
-      branch = "unstable",
       config = function()
          require "modules.configs.neorg"
       end,
