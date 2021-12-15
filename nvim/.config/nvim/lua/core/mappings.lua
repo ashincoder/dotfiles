@@ -95,7 +95,7 @@ M.nvimtree = function()
 end
 
 M.term = function()
-   map("n", "<C-t>", ":ToggleTerm <CR>", opts)
+   map("n", "<C-t>", ":lua require('Fterm').toggle()<CR>", opts)
 end
 
 M.neogit = function()
