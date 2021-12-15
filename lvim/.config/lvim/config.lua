@@ -61,6 +61,8 @@ lvim.builtin.treesitter.ensure_installed = {
 	"java",
 	"yaml",
 	"norg",
+	"norg_meta",
+	"norg_table",
 	"comment",
 }
 lvim.builtin.treesitter.highlight.enabled = true
@@ -77,7 +79,6 @@ lvim.plugins = {
 	{
 		"nvim-neorg/neorg",
 		ft = "norg",
-		branch = "unstable",
 		config = function()
 			require("ashin.neorg")
 		end,

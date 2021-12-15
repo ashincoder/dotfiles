@@ -18,6 +18,15 @@ return {
    -- Colorscheme
    { "NTBBloodbath/doom-one.nvim" },
 
+   -- Dashboard
+   {
+      "goolord/alpha-nvim",
+      event = "BufWinEnter",
+      config = function()
+         require "modules.configs.alpha"
+      end,
+   },
+
    -- Statusline
    {
       "nvim-lualine/lualine.nvim",
@@ -126,12 +135,6 @@ return {
       config = function()
          require("modules.configs.others").autopairs()
       end,
-   },
-
-   -- Racket bundle
-   {
-      "wlangstroth/vim-racket",
-      event = "BufRead",
    },
 
    -- Icons

@@ -34,8 +34,10 @@ local conditions = {
 local config = {
    options = {
       -- Disable sections and component separators
+      icons_enabled = true,
       component_separators = "",
       section_separators = "",
+      disabled_filetypes = { "alpha", "dashboard" },
       theme = {
          -- We are going to use lualine_c an lualine_x as left and
          -- right section. Both are highlighted by c theme .  So we
