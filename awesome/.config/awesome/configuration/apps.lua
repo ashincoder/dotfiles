@@ -2,7 +2,7 @@ Apps = {
 
 	terminal = "alacritty",
 
-	editor = "alacritty -e nvim",
+	editor = "emacsclient -c",
 
 	explorer = "nemo",
 

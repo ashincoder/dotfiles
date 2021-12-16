@@ -16,6 +16,7 @@ local sources = {
 
    -- Python
    formatter.yapf,
+   formatter.isort,
    linter.flake8,
 
    -- Shell
