@@ -2,7 +2,7 @@ Apps = {
 
 	terminal = "alacritty",
 
-	editor = "emacsclient -c",
+	editor = "emacsclient -ca 'emacs'",
 
 	explorer = "nemo",
 

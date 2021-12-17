@@ -7,7 +7,12 @@ return {
    },
 
    -- TODO: Remove this when https://github.com/neovim/neovim/pull/15436 gets into upstream
-   { "lewis6991/impatient.nvim" },
+   {
+      "lewis6991/impatient.nvim",
+      config = function()
+         require("impatient").enable_profile()
+      end,
+   },
 
    -- NOTE: issue https://github.com/neovim/neovim/issues/12587 is still open
    { "antoinemadec/FixCursorHold.nvim" },

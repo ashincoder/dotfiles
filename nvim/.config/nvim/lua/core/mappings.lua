@@ -38,7 +38,8 @@ M.misc = function()
    map("n", "<C-l>", "<C-w>l", opts)
 
    -- Buffer Movements
-   map("n", "<S-TAB>", ":bnext<CR>", opts)
+   map("n", "<S-l>", ":BufNext<CR>", opts)
+   map("n", "<S-h>", ":BufPrev<CR>", opts)
 
    -- Window Closing
    map("n", "<leader>cc", ":bdelete!<CR>", opts)
