@@ -221,7 +221,7 @@ return {
    },
 
    -- Norg Note taking
-   {
+   --[[ {
       "nvim-neorg/neorg",
       cmd = "Neorg",
       ft = "norg",
@@ -229,7 +229,7 @@ return {
          require "modules.configs.neorg"
       end,
       requires = "nvim-neorg/neorg-telescope",
-   },
+   }, ]]
 
    -- Zen mode
    {
@@ -242,14 +242,14 @@ return {
    },
 
    -- Magit like neogit
-   {
+   --[[ {
       "TimUntersberger/neogit",
       module = "neogit",
       cmd = "Neogit",
       setup = function()
          require("core.mappings").neogit()
       end,
-   },
+   }, ]]
 
    -- Notifier for neovim
    {

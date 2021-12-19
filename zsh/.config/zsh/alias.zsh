@@ -19,6 +19,7 @@ alias sxiv='devour sxiv'
 alias lg='lazygit'
 
 # Doom Emacs
+alias em="/usr/bin/emacs -nw"
 alias doomsync="~/.emacs.d/bin/doom sync"
 alias doomdoctor="~/.emacs.d/bin/doom doctor"
 alias doomupgrade="~/.emacs.d/bin/doom upgrade"

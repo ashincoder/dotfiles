@@ -8,11 +8,11 @@ local formatter = null_ls.builtins.formatting
 local sources = {
    formatter.prettier,
    linter.yamllint,
-   formatter.trim_whitespace.with { filetypes = { "teal", "zsh", "norg" } },
+   formatter.trim_whitespace.with { filetypes = { "teal", "org", "zsh", "norg" } },
 
    -- Lua
    formatter.stylua,
-   linter.luacheck.with { extra_args = { "--global vim" } },
+   -- linter.luacheck.with { extra_args = { "--global vim" } },
 
    -- Python
    formatter.yapf,
@@ -29,7 +29,7 @@ local sources = {
 local M = {}
 M.setup = function()
    null_ls.setup {
-      -- debug = true,
+      debug = false,
       sources = sources,
    }
 end
