@@ -57,4 +57,11 @@ function plugin_loader:load(configurations)
    end)
 end
 
+vim.cmd [[
+  augroup packer_plugins
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
+  augroup end
+]]
+
 return plugin_loader

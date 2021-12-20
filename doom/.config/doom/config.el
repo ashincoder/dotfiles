@@ -38,13 +38,13 @@
         org-hide-emphasis-markers t
         org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
           '((sequence
-             "ASSIGMENT(h)"
              "TODO(t)"
+             "ASSIGMENT(h)"
              "CANCEL(c)"
              "PROJ(p)"
              "STUDY(s)"
-             "DONE(d)"
-             "WAIT(w)" )))
+             "WAIT(w)"
+             "DONE(d)" )))
   ;; Org journal
   (setq org-journal-dir "~/Org/journal/"
         org-journal-date-prefix "* "

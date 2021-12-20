@@ -16,7 +16,7 @@ end
 
 vim.defer_fn(function()
    -- Plugin Loader
-   local plugins = require "modules"
+   local plugins = require "modules.plugins"
    require("modules.loader"):load { plugins }
 end, 0)
 
