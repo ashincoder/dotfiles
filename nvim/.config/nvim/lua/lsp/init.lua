@@ -8,6 +8,25 @@ for type, icon in pairs(signs) do
    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+local config = {
+   virtual_text = true,
+   signs = {
+      active = signs,
+   },
+   underline = true,
+   severity_sort = true,
+   float = {
+      focusable = false,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+   },
+}
+
+vim.diagnostic.config(config)
+
 local function document_highlight(client)
    -- Set autocommands conditional on server_capabilities
    if client.resolved_capabilities.document_highlight then
@@ -61,38 +80,14 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- Setting up servers installed
 lsp_installer.on_server_ready(function(server)
    -- Custom on_attach and capabilities
-   local default_opts = {
+   local opts = {
       on_attach = on_attach,
       capabilities = capabilities,
    }
    -- Custom server options for sumneko_lua
-   local server_opts = {
-      ["sumneko_lua"] = function()
-         return vim.tbl_deep_extend("force", { default_opts }, {
-            settings = {
-               Lua = {
-                  runtime = {
-                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                     version = "LuaJIT",
-                     -- Setup your lua path
-                     path = vim.split(package.path, ";"),
-                  },
-                  diagnostics = {
-                     -- Get the language server to recognize the `vim` global
-                     globals = { "vim" },
-                  },
-                  workspace = {
-                     -- Make the server aware of Neovim runtime files
-                     library = {
-                        [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                     },
-                     maxPreload = 100000,
-                     preloadFileSize = 1000,
-                  },
-               },
-            },
-         })
-      end,
-   }
-   server:setup((server_opts[server.name] and default_opts or default_opts))
+   if server.name == "sumneko_lua" then
+      local sumneko_opts = require "lsp.servers.sumneko"
+      opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+   end
+   server:setup(opts)
 end)
