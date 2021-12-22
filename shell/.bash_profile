@@ -40,7 +40,3 @@ export VIDEO="mpv"
 export TERMINAL="st"
 export BROWSER="brave"
 export PAGER="bat"
-
-if [ -e /home/ashin/.nix-profile/etc/profile.d/nix.sh ]; then
-	. /home/ashin/.nix-profile/etc/profile.d/nix.sh
-fi

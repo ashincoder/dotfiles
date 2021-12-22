@@ -8,11 +8,15 @@ local formatter = null_ls.builtins.formatting
 local sources = {
    formatter.prettier,
    linter.yamllint,
-   formatter.trim_whitespace.with { filetypes = { "teal", "org", "zsh", "norg" } },
+   formatter.trim_whitespace.with {
+      filetypes = { "teal", "org", "zsh", "norg" },
+   },
 
    -- Lua
    formatter.stylua,
-   -- linter.luacheck.with { extra_args = { "--global vim" } },
+   linter.luacheck.with {
+      extra_args = { "--global vim" },
+   },
 
    -- Python
    formatter.yapf,
@@ -20,8 +24,13 @@ local sources = {
    linter.flake8,
 
    -- Shell
-   formatter.shfmt,
-   linter.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+   formatter.shfmt.with {
+      filetypes = { "sh", "bash", "zsh" },
+   },
+   linter.shellcheck.with {
+      filetypes = { "sh", "bash", "zsh" },
+      diagnostics_format = "#{m} [#{c}]",
+   },
 
    null_ls.builtins.hover.dictionary.with { filetypes = { "norg", "txt", "markdown" } },
 }
