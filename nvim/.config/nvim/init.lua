@@ -22,3 +22,4 @@ end, 0)
 
 -- Language Server Protocol
 require "lsp"
+vim.cmd ":silent LuaCacheLog"

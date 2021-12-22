@@ -19,10 +19,7 @@ M.misc = function()
    map("n", "Y", "y$<CR>", opts)
 
    -- Source file
-   map("n", "<leader>s", ":source %<CR>", opts)
-
-   -- New file
-   map("n", "<C-f>", ":enew<CR>", opts)
+   map("n", "<C-s>", ":source %<CR>", opts)
 
    -- Jump and align in the middle
    map("n", "n", "nzzzv", opts)
@@ -77,16 +74,52 @@ M.packer = function()
 end
 
 M.telescope = function()
-   map("n", "<leader>f", ":Telescope find_files<CR>", opts)
-   map("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
-   map("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
-   map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-   map("n", "<leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", opts)
-   map("n", "<leader>fw", ":Telescope live_grep<CR>", opts)
+   map("n", "<leader>f", ":lua require('telescope.builtin').find_files()<CR>", opts)
+   map(
+      "n",
+      "<leader>ff",
+      ":lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+      opts
+   )
+   map(
+      "n",
+      "<leader>ft",
+      ":lua require('telescope.builtin').treesitter(require('telescope.themes').get_dropdown())<CR>",
+      opts
+   )
+   map(
+      "n",
+      "<leader>fg",
+      ":lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy())<CR>",
+      opts
+   )
+   map(
+      "n",
+      "<leader>fr",
+      ":lua require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy{previewer = false})<CR>",
+      opts
+   )
+   map(
+      "n",
+      "<leader>fw",
+      ":lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<CR>",
+      opts
+   )
    -- Git stuff
-   map("n", "<leader>gs", ":Telescope git_stash<CR>", opts)
-   map("n", "<leader>gt", ":Telescope git_status<CR>", opts)
-   map("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
+
+   map(
+      "n",
+      "<leader>gs",
+      ":lua require('telescope.builtin').git_stash(require('telescope.themes').get_dropdown())<CR>",
+      opts
+   )
+   map("n", "<leader>gt", ":lua require('telescope.builtin').git_status()<CR>", opts)
+   map(
+      "n",
+      "<leader>gb",
+      ":lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown())<CR>",
+      opts
+   )
 end
 
 M.nvimtree = function()

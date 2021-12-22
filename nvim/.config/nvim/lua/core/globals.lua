@@ -20,8 +20,5 @@ R = function(name)
    return require(name)
 end
 
--- Setting command for Reloader
--- Can be called using ':Reload'
-vim.cmd 'command! Reload lua require("modules.builtin.reloader").full_reload()'
 require "modules.builtin.mkdir"
 require "modules.builtin.notify"
