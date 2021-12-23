@@ -1,3 +1,4 @@
+vim.cmd(":silent :LuaCacheLog")
 -- [[ GENERAL SETTINGS ]] --
 
 lvim.colorscheme = "onedarker"

@@ -46,7 +46,7 @@ return {
       "jose-elias-alvarez/buftabline.nvim",
       event = "BufWinEnter",
       config = function()
-         require("buftabline").setup()
+         require("buftabline").setup {}
       end,
    },
 
@@ -164,7 +164,7 @@ return {
       "numToStr/Comment.nvim",
       after = "nvim-treesitter",
       config = function()
-         require("Comment").setup()
+         require("Comment").setup {}
       end,
    },
 
@@ -196,7 +196,7 @@ return {
             "akinsho/org-bullets.nvim",
             ft = { "org" },
             config = function()
-               require("org-bullets").setup()
+               require("org-bullets").setup {}
             end,
          },
       },
@@ -281,7 +281,18 @@ return {
    -- Match Parens
    {
       "andymass/vim-matchup",
-      after = "nvim-lspconfig",
+      setup = function()
+         require("core.utils").lazy_load "gitsigns.nvim"
+      end,
+   },
+
+   -- Lightspeed motion
+   {
+      "ggandor/lightspeed.nvim",
+      after = "gitsigns.nvim",
+      config = function()
+         require("lightspeed").setup {}
+      end,
    },
 
    -- Nvim Tree

@@ -27,6 +27,11 @@ definition.define_augroups {
          "*",
          "silent lua vim.lsp.buf.formatting_sync()",
       },
+      {
+         "BufWritePost",
+         "plugins.lua",
+         "source <afile> | lua require('packer').sync()",
+      },
       _filetypechanges = {
          { "BufWinEnter", ".zsh", "setlocal filetype=sh" },
          { "BufRead", "*.zsh", "setlocal filetype=sh" },
