@@ -3,9 +3,9 @@ local map = utils.map
 
 local opts = { silent = true, noremap = true }
 
-local M = {}
+local keys = {}
 
-M.misc = function()
+keys.misc = function()
    -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
    map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
    map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
@@ -65,7 +65,7 @@ M.misc = function()
    map("n", "<Tab>", "za", opts)
 end
 
-M.packer = function()
+keys.packer = function()
    map("n", "<leader>pi", ":PackerInstall<CR>", opts)
    map("n", "<leader>pr", ":PackerCompile<CR>", opts)
    map("n", "<leader>pc", ":PackerClean<CR>", opts)
@@ -73,7 +73,7 @@ M.packer = function()
    map("n", "<leader>ps", ":PackerSync<CR>", opts)
 end
 
-M.telescope = function()
+keys.telescope = function()
    map("n", "<leader>f", ":lua require('telescope.builtin').find_files()<CR>", opts)
    map(
       "n",
@@ -122,18 +122,24 @@ M.telescope = function()
    )
 end
 
-M.nvimtree = function()
+keys.nvimtree = function()
    map("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
    map("n", "<leader>er", ":NvimTreeRefresh <CR>", opts)
    map("n", "<leader>ef", ":NvimTreeFocus <CR>", opts)
 end
 
-M.term = function()
+keys.term = function()
    map("n", "<C-t>", ":lua require('Fterm').toggle()<CR>", opts)
 end
 
-M.neogit = function()
+keys.neogit = function()
    map("n", "<leader>gg", ":Neogit <CR>", opts)
 end
 
-return M
+keys.telescope_lsp = function()
+   map("n", "<leader>gI", ":lua require('lsp.telescope_lsp').lsp_implementations() <CR>", opts)
+   map("n", "<leader>gr", ":lua require('lsp.telescope_lsp').lsp_references() <CR>", opts)
+   map("n", "<leader>ca", ":lua require('lsp.telescope_lsp').code_actions() <CR>", opts)
+end
+
+return keys

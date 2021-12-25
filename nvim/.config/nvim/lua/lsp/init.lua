@@ -59,16 +59,14 @@ local function lsp_keybindings(bufnr)
    set_key("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>", opts) -- Hover Doc
    set_key("n", "[d", "<cmd>:lua vim.lsp.diagnostic.goto_next<CR>zz", opts)
    set_key("n", "]d", "<cmd>:lua vim.lsp.diagnostic.goto_prev<CR>zz", opts)
-   set_key("n", "ca", "<cmd>:lua vim.lsp.buf.code_action()<CR>", opts)
-   set_key("n", "gI", "<cmd>:lua vim.lsp.buf.implementation()<CR>", opts)
    set_key("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>", opts)
    set_key("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>", opts) -- Definition
-   set_key("n", "ge", "<cmd>:lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opts)
-   set_key("n", "gp", "<cmd>lua require('lsp.peek').Peek('definition')<CR>", opts)
+   set_key("n", "gl", "<cmd>:lua vim.diagnostic.open_float()<CR>", opts)
 end
 
 local on_attach = function(client, bufnr)
    handlers.setup() -- Setting Handlers
+   require("core.mappings").telescope_lsp() -- Telescope lsp keybinds
    lsp_keybindings(bufnr) -- Lsp buffer lsp_keybindings
    document_highlight(client) -- document highlighting
    require("lsp_signature").on_attach(client) -- Lsp Signature
