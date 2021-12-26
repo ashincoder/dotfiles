@@ -237,7 +237,18 @@ return {
       module = "zen-mode",
       cmd = "ZenMode",
       config = function()
-         require("zen-mode").setup {}
+         require("zen-mode").setup {
+            window = {
+               backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+            },
+            options = {
+               numbers = true,
+               relativenumber = true,
+            },
+            plugins = {
+               gitsigns = { enabled = true },
+            },
+         }
       end,
    },
 
