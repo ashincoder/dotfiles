@@ -22,6 +22,7 @@ return {
 
    -- Colorscheme
    { "NTBBloodbath/doom-one.nvim" },
+   { "luisiacc/gruvbox-baby" },
 
    -- Dashboard
    {
@@ -37,7 +38,10 @@ return {
       "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         require "modules.configs.statusline"
+         -- require "modules.configs.statusline"
+         require("lualine").setup {
+            theme = "gruvbox",
+         }
       end,
    },
 

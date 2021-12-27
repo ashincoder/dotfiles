@@ -85,7 +85,7 @@ options.load_options = function()
    vim.opt.listchars:append "eol:↴"
    vim.opt.listchars:append "space: "
    -- Colorscheme
-   vim.g.colors_name = "doom-one"
+   vim.g.colors_name = "gruvbox-baby"
    for k, v in pairs(opts) do
       vim.opt[k] = v
    end

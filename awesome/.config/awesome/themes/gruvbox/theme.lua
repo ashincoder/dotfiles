@@ -1,6 +1,6 @@
 --[[
 
-     Powerarrow Dark Awesome WM theme
+     Gruvbox Dark Awesome WM theme
 
 --]]
 
@@ -14,14 +14,14 @@ local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme = {}
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/dark-arrow"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 theme.wallpaper = theme.dir .. "/wall.png"
 theme.font = "JetBrains Mono Nerd Font 9"
-theme.fg_normal = "#DDDDFF"
-theme.fg_focus = "#ddb2b8"
-theme.fg_urgent = "#CC9393"
-theme.bg_normal = "#0F0E0D"
-theme.bg_focus = "#313131"
+theme.fg_normal = "#ebdbb2"
+theme.fg_focus = "#ebdbb2"
+theme.fg_urgent = "#cc241d"
+theme.bg_normal = "#242424"
+theme.bg_focus = "#4b4c4d"
 theme.bg_urgent = "#1A1A1A"
 theme.border_width = dpi(2)
 theme.border_normal = "#617087"

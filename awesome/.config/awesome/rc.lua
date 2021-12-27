@@ -15,11 +15,11 @@ require("modules.sloppy_focus")
 -- Theme handling library
 local beautiful = require("beautiful")
 local themes = {
-	"dark-arrow", -- 1
+	"gruvbox", -- 1
 	"doom-one", -- 2
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[1]
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 

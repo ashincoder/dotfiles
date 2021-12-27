@@ -25,7 +25,7 @@ definition.define_augroups {
       {
          "BufWritePre",
          "*",
-         "silent lua vim.lsp.buf.formatting_sync()",
+         "silent lua vim.lsp.buf.formatting()",
       },
       {
          "BufWritePost",
