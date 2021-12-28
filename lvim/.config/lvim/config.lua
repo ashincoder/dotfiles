@@ -1,7 +1,7 @@
 vim.cmd(":silent :LuaCacheLog")
 -- [[ GENERAL SETTINGS ]] --
 
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "gruvbox-baby"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
@@ -103,6 +103,8 @@ lvim.plugins = {
 		end,
 		event = "BufRead",
 	},
+
+	{ "luisiacc/gruvbox-baby" },
 }
 
 -- [[ PLUGIN OVERRIDES ]] --
