@@ -1,19 +1,18 @@
 local lualine = require "lualine"
 
--- Color table for highlights
+-- [[ GRUVBOX ]
 -- stylua: ignore
 local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
+  black        = '#282828',
+  white        = '#ebdbb2',
+  red          = '#fb4934',
+  green        = '#b8bb26',
+  blue         = '#83a598',
+  yellow       = '#fe8019',
+  gray         = '#a89984',
+  darkgray     = '#3c3836',
+  lightgray    = '#504945',
+  inactivegray = '#7c6f64',
 }
 
 local conditions = {
@@ -30,20 +29,20 @@ local conditions = {
    end,
 }
 
--- Config
-local config = {
+local gruvbox_express = {
+
    options = {
-      -- Disable sections and component separators
+      -- disable sections and component separators
       icons_enabled = true,
       component_separators = "",
       section_separators = "",
       disabled_filetypes = { "alpha", "dashboard" },
       theme = {
-         -- We are going to use lualine_c an lualine_x as left and
-         -- right section. Both are highlighted by c theme .  So we
+         -- we are going to use lualine_c an lualine_x as left and
+         -- right section. both are highlighted by c theme .  so we
          -- are just setting default looks o statusline
-         normal = { c = { fg = colors.fg, bg = colors.bg } },
-         inactive = { c = { fg = colors.fg, bg = colors.bg } },
+         normal = { c = { fg = colors.white, bg = colors.darkgray } },
+         inactive = { c = { fg = colors.gray, bg = colors.darkgray } },
       },
    },
    sections = {
@@ -52,7 +51,7 @@ local config = {
       lualine_b = {},
       lualine_y = {},
       lualine_z = {},
-      -- These will be filled later
+      -- these will be filled later
       lualine_c = {},
       lualine_x = {},
    },
@@ -69,59 +68,31 @@ local config = {
 
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
-   table.insert(config.sections.lualine_c, component)
+   table.insert(gruvbox_express.sections.lualine_c, component)
 end
 
 -- Inserts a component in lualine_x ot right section
 local function ins_right(component)
-   table.insert(config.sections.lualine_x, component)
+   table.insert(gruvbox_express.sections.lualine_x, component)
 end
 
 ins_left {
    function()
-      return "▊"
+      return ""
    end,
-   color = { fg = colors.blue }, -- Sets highlighting of component
-   padding = { left = 0, right = 1 }, -- We don't need space before this
+   padding = { left = 0.5, right = 1 }, -- We don't need space before this
 }
 
 ins_left {
-   -- mode component
-   function()
-      -- auto change color according to neovims mode
-      local mode_color = {
-         n = colors.red,
-         i = colors.green,
-         v = colors.blue,
-         [""] = colors.blue,
-         V = colors.blue,
-         c = colors.magenta,
-         no = colors.red,
-         s = colors.orange,
-         S = colors.orange,
-         [""] = colors.orange,
-         ic = colors.yellow,
-         R = colors.violet,
-         Rv = colors.violet,
-         cv = colors.red,
-         ce = colors.red,
-         r = colors.cyan,
-         rm = colors.cyan,
-         ["r?"] = colors.cyan,
-         ["!"] = colors.red,
-         t = colors.red,
-      }
-      vim.api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
-      return ""
-   end,
-   color = "LualineMode",
-   padding = { right = 1 },
+   "mode",
+   color = { gui = "bold" },
+   padding = { left = 0.5, right = 1 },
 }
 
 ins_left {
    "branch",
    icon = "",
-   color = { fg = colors.violet, gui = "bold" },
+   color = { fg = colors.blue, gui = "bold" },
 }
 
 ins_left {
@@ -136,12 +107,10 @@ ins_left {
    diagnostics_color = {
       color_error = { fg = colors.red },
       color_warn = { fg = colors.yellow },
-      color_info = { fg = colors.cyan },
+      color_info = { fg = colors.gray },
    },
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
 ins_left {
    function()
       return "%="
@@ -180,7 +149,11 @@ ins_right {
 
 ins_right { "location" }
 
-ins_right { "progress", color = { fg = colors.fg, gui = "bold" } }
+ins_right {
+   "progress",
+   icon = " ",
+   color = { fg = colors.fg, gui = "bold" },
+}
 
 ins_right {
    function()
@@ -190,5 +163,4 @@ ins_right {
    padding = { left = 1 },
 }
 
--- Now don't forget to initialize lualine
-lualine.setup(config)
+lualine.setup(gruvbox_express)
