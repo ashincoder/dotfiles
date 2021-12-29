@@ -32,7 +32,7 @@ local sources = {
       diagnostics_format = "#{m} [#{c}]",
    },
 
-   null_ls.builtins.hover.dictionary.with { filetypes = { "norg", "txt", "markdown" } },
+   null_ls.builtins.hover.dictionary.with { filetypes = { "norg", "org", "txt", "markdown" } },
 }
 
 local M = {}

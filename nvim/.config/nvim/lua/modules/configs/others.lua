@@ -5,7 +5,15 @@ M.colorizer = function()
    if not present then
       return
    end
-   colorizer.setup()
+   colorizer.setup({ "*" }, {
+      RGB = true, -- #RGB hex codes
+      RRGGBB = true, -- #RRGGBB hex codes
+      RRGGBBAA = true, -- #RRGGBBAA hex codes
+      rgb_fn = true, -- CSS rgb() and rgba() functions
+      hsl_fn = true, -- CSS hsl() and hsla() functions
+      css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+      css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+   })
    vim.cmd "ColorizerReloadAllBuffers"
 end
 
@@ -59,9 +67,8 @@ M.autopairs = function()
    autopairs.setup {
       check_ts = true,
    }
-
    local cmp = require "cmp"
-   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 end
 
 return M

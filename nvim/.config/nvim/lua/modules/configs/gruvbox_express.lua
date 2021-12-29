@@ -77,16 +77,9 @@ local function ins_right(component)
 end
 
 ins_left {
-   function()
-      return ""
-   end,
-   padding = { left = 0.5, right = 1 }, -- We don't need space before this
-}
-
-ins_left {
    "mode",
    color = { gui = "bold" },
-   padding = { left = 0.5, right = 1 },
+   padding = { left = 1, right = 1 },
 }
 
 ins_left {
