@@ -1,4 +1,4 @@
-vim.cmd(":silent :LuaCacheLog")
+vim.g.did_load_filetypes = 1
 -- [[ GENERAL SETTINGS ]] --
 
 lvim.colorscheme = "gruvbox-baby"
@@ -14,7 +14,7 @@ lvim.leader = "space"
 ---@usage Edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
---@usage Use which-key to add extra bindings with the leader-key prefix
+---@usage Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["n"] = {
 	name = "Neogen",
 	c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
@@ -76,6 +76,18 @@ lvim.lsp.templates_dir = join_paths(get_runtime_dir(), "after", "ftplugin")
 -- [[ PLUGINS ]] --
 
 lvim.plugins = {
+
+	-- Dashboard
+	{
+		"goolord/alpha-nvim",
+		event = "BufWinEnter",
+		config = function()
+			require("ashin.dashboard")
+		end,
+	},
+	-- Faster version of filetype.vim
+	{ "nathom/filetype.nvim" },
+
 	-- Norg Note taking
 	{
 		"nvim-neorg/neorg",
@@ -104,7 +116,36 @@ lvim.plugins = {
 		event = "BufRead",
 	},
 
+	-- Orgmode
+	{
+		"kristijanhusak/orgmode.nvim",
+		ft = { "org" },
+		config = function()
+			require("orgmode").setup({
+				diagnostics = true,
+				org_hide_leading_stars = true,
+				org_ellipsis = " ▼",
+				-- org_indent_mode = "noindent",
+			})
+		end,
+		requires = {
+			{
+				"akinsho/org-bullets.nvim",
+				ft = { "org" },
+				config = function()
+					require("org-bullets").setup({})
+				end,
+			},
+		},
+	},
+
 	{ "luisiacc/gruvbox-baby" },
+
+	-- Match Parens
+	{
+		"andymass/vim-matchup",
+		event = "BufRead",
+	},
 }
 
 -- [[ PLUGIN OVERRIDES ]] --
