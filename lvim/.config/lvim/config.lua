@@ -1,6 +1,5 @@
-vim.g.did_load_filetypes = 1
 -- [[ GENERAL SETTINGS ]] --
-
+vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
 lvim.colorscheme = "gruvbox-baby"
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -50,6 +49,15 @@ parser_configs.norg_table = {
 	},
 }
 
+parser_configs.org = {
+	install_info = {
+		url = "https://github.com/milisims/tree-sitter-org",
+		revision = "main",
+		files = { "src/parser.c", "src/scanner.cc" },
+	},
+	filetype = "org",
+}
+
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
 	"c",
@@ -64,6 +72,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"norg",
 	"norg_meta",
 	"norg_table",
+	"org",
 	"comment",
 }
 lvim.builtin.treesitter.highlight.enabled = true
@@ -77,6 +86,9 @@ lvim.lsp.templates_dir = join_paths(get_runtime_dir(), "after", "ftplugin")
 
 lvim.plugins = {
 
+	-- Colorscheme
+	{ "luisiacc/gruvbox-baby" },
+
 	-- Dashboard
 	{
 		"goolord/alpha-nvim",
@@ -85,8 +97,18 @@ lvim.plugins = {
 			require("ashin.dashboard")
 		end,
 	},
+
 	-- Faster version of filetype.vim
 	{ "nathom/filetype.nvim" },
+
+	-- Lsp-signature
+	{
+		"ray-x/lsp_signature.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("lsp_signature").setup({})
+		end,
+	},
 
 	-- Norg Note taking
 	{
@@ -139,12 +161,19 @@ lvim.plugins = {
 		},
 	},
 
-	{ "luisiacc/gruvbox-baby" },
-
 	-- Match Parens
 	{
 		"andymass/vim-matchup",
 		event = "BufRead",
+	},
+
+	-- Lightspeed motion
+	{
+		"ggandor/lightspeed.nvim",
+		after = "gitsigns.nvim",
+		config = function()
+			require("lightspeed").setup({})
+		end,
 	},
 }
 
