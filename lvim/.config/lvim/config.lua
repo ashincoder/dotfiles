@@ -1,4 +1,5 @@
 -- [[ GENERAL SETTINGS ]] --
+
 vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
 lvim.colorscheme = "gruvbox-baby"
 lvim.log.level = "warn"
@@ -181,6 +182,7 @@ lvim.plugins = {
 
 lvim.builtin.terminal.active = true
 lvim.builtin.notify.active = true
+require("ashin.mkdir")
 
 -- [[ AUTOCOMMANDS ]] --
 -- lvim.autocommands.custom_groups = {
