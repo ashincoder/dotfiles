@@ -38,7 +38,7 @@ return {
       "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         if vim.g.statusline_theme == "gruvbox_express" then
+         if vim.g.colors_name == "gruvbox-baby" then
             require "modules.configs.gruvbox_express"
          else
             require "modules.configs.evil_line"

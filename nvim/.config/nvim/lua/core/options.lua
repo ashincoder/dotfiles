@@ -86,8 +86,7 @@ options.load_options = function()
    vim.opt.listchars:append "space: "
 
    -- Custom settings
-   vim.g.statusline_theme = "gruvbox_express"
-   vim.g.colors_name = "gruvbox-baby" -- Colorscheme
+   vim.g.colors_name = "doom-one" -- Colorscheme
    --
    for k, v in pairs(opts) do
       vim.opt[k] = v

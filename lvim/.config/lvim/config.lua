@@ -1,7 +1,7 @@
 -- [[ GENERAL SETTINGS ]] --
 
 vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
-lvim.colorscheme = "gruvbox-baby"
+lvim.colorscheme = "doom-one"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
@@ -88,6 +88,7 @@ lvim.lsp.templates_dir = join_paths(get_runtime_dir(), "after", "ftplugin")
 lvim.plugins = {
 
 	-- Colorscheme
+	{ "NTBBloodbath/doom-one.nvim" },
 	{ "luisiacc/gruvbox-baby" },
 
 	-- Dashboard

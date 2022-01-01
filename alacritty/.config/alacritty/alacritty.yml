@@ -19,7 +19,7 @@ window:
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  #dimensions:
+  # dimensions:
   #  columns: 0
   #  lines: 0
 
@@ -27,7 +27,7 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  #position:
+  # position:
   #  x: 0
   #  y: 0
 
@@ -40,7 +40,7 @@ window:
     y: 0
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  # dynamic_padding: false
 
   # Window decorations
   #
@@ -62,13 +62,13 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  # startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
+  # title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+  # dynamic_title: true
 
   # Window class (Linux/BSD only):
   class:
@@ -78,10 +78,9 @@ window:
     general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
-  #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
+  # gtk_theme_variant: None
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -200,57 +199,57 @@ font:
 
 colors:
   # DOOM-ONE
-  # primary:
-  #   background: "0x282c34"
-  #   # background: "0x0F0E0D" # Dark
-  #   foreground: "0xbbc2cf"
-  #
-  # # Normal colors
-  # normal:
-  #   black: "0x282c34"
-  #   red: "0xff6c6b"
-  #   green: "0x98be65"
-  #   yellow: "0xecbe7b"
-  #   blue: "0x51afef"
-  #   magenta: "0xc678dd"
-  #   cyan: "0x46d9ff"
-  #   white: "0xbbc2cf"
-  # GRUVBOX
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: "0x282828"
-    # soft contrast: background = '0x32302f'
-    foreground: "0xebdbb2"
+    background: "0x282c34"
+    # background: "0x0F0E0D" # Dark
+    foreground: "0xbbc2cf"
 
   # Normal colors
   normal:
-    black: "0x282828"
-    red: "0xcc241d"
-    green: "0x98971a"
-    yellow: "0xd79921"
-    blue: "0x458588"
-    magenta: "0xb16286"
-    cyan: "0x689d6a"
-    white: "0xa89984"
+    black: "0x282c34"
+    red: "0xff6c6b"
+    green: "0x98be65"
+    yellow: "0xecbe7b"
+    blue: "0x51afef"
+    magenta: "0xc678dd"
+    cyan: "0x46d9ff"
+    white: "0xbbc2cf"
+  # GRUVBOX
+  # primary:
+  #   # hard contrast: background = '0x1d2021'
+  #   background: "0x282828"
+  #   # soft contrast: background = '0x32302f'
+  #   foreground: "0xebdbb2"
 
-  # Bright colors
-  bright:
-    black: "0x928374"
-    red: "0xfb4934"
-    green: "0xb8bb26"
-    yellow: "0xfabd2f"
-    blue: "0x83a598"
-    magenta: "0xd3869b"
-    cyan: "0x8ec07c"
-    white: "0xebdbb2"
+  # # Normal colors
+  # normal:
+  #   black: "0x282828"
+  #   red: "0xcc241d"
+  #   green: "0x98971a"
+  #   yellow: "0xd79921"
+  #   blue: "0x458588"
+  #   magenta: "0xb16286"
+  #   cyan: "0x689d6a"
+  #   white: "0xa89984"
 
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
+  # # Bright colors
+  # bright:
+  #   black: "0x928374"
+  #   red: "0xfb4934"
+  #   green: "0xb8bb26"
+  #   yellow: "0xfabd2f"
+  #   blue: "0x83a598"
+  #   magenta: "0xd3869b"
+  #   cyan: "0x8ec07c"
+  #   white: "0xebdbb2"
 
-  selection:
-    text: CellBackground
-    background: CellForeground
+  # vi_mode_cursor:
+  #   text: CellBackground
+  #   cursor: CellForeground
+
+  # selection:
+  #   text: CellBackground
+  #   background: CellForeground
 
 # Background opacity
 #
