@@ -2,7 +2,7 @@
 
 local awful = require("awful")
 
-local apps = {
+local processes = {
 	-- Compositor
 	"picom --experimental-backends",
 	-- NetworkManager systray applet
@@ -23,7 +23,7 @@ local function run_once(cmd)
 	awful.spawn.with_shell(string.format("pgrep -u $USER -x %s > /dev/null || (%s)", running_process, cmd))
 end
 
-for _, process in ipairs(apps) do
+for _, process in ipairs(processes) do
 	run_once(process)
 end
 

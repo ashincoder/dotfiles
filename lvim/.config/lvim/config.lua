@@ -134,10 +134,10 @@ lvim.plugins = {
 	-- Colorize HEX codes
 	{
 		"norcalli/nvim-colorizer.lua",
+		event = "BufRead",
 		config = function()
 			require("ashin.colorizer")
 		end,
-		event = "BufRead",
 	},
 
 	-- Orgmode
@@ -184,6 +184,11 @@ lvim.plugins = {
 lvim.builtin.terminal.active = true
 lvim.builtin.notify.active = true
 require("ashin.mkdir")
+
+local tbl = vim.deepcopy(lvim.builtin.cmp.sources)
+table.insert(tbl, { name = "neorg" })
+
+require("cmp").setup.buffer({ sources = tbl })
 
 -- [[ AUTOCOMMANDS ]] --
 -- lvim.autocommands.custom_groups = {

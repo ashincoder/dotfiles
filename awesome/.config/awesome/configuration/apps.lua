@@ -1,6 +1,6 @@
 Apps = {
 
-	terminal = "kitty",
+	terminal = "alacritty",
 
 	editor = "emacsclient -ca 'emacs'",
 

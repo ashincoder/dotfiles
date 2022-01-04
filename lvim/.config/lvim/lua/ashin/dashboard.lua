@@ -35,7 +35,7 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-	return "MiniVim"
+	return "LunarVim"
 end
 
 dashboard.section.footer.val = footer()

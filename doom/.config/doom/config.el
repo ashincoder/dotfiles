@@ -29,7 +29,7 @@
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq org-directory "~/Org/"
-        org-agenda-files '("~/Org/agenda.org")
+        org-agenda-files '("~/Org/agendas/")
         org-notes-files '("~/Org/notes/")
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
@@ -42,17 +42,16 @@
              "PROJ(p)"
              "STUDY(s)"
              "ASSIGNMENT(h)"
-             "CANCEL(c)"
+             "|"
              "WAIT(w)"
+             "CANCELLLED(c)"
              "DONE(d)" )))
   ;; Org journal
   (setq org-journal-dir "~/Org/journal/"
         org-journal-date-prefix "* "
         org-journal-time-prefix "** "
         org-journal-date-format "%B %d, %Y (%A) "
-        org-journal-file-format "%Y-%m-%d.org")
-  (after! org-roam
-    (setq org-roam-directory "~/Org/roam/")))
+        org-journal-file-format "%Y-%m-%d.org"))
 
 ;; Disable invasive lsp-mode features
 (setq lsp-ui-sideline-enable nil   ; not anymore useful than flycheck
