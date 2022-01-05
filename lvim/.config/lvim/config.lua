@@ -115,7 +115,6 @@ lvim.plugins = {
 	-- Norg Note taking
 	{
 		"nvim-neorg/neorg",
-		ft = "norg",
 		config = function()
 			require("ashin.neorg")
 		end,

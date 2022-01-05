@@ -79,8 +79,7 @@ return {
    -- Completion
    {
       "hrsh7th/nvim-cmp",
-      event = "InsertEnter",
-      module = "cmp",
+      event = "BufRead",
       config = function()
          require "modules.configs.cmp"
       end,
@@ -210,7 +209,6 @@ return {
    -- More than a fuzzy finder
    {
       "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
       requires = {
          {
             "nvim-telescope/telescope-fzf-native.nvim",
@@ -226,15 +224,14 @@ return {
    },
 
    -- Norg Note taking
-   --[[ {
+   {
       "nvim-neorg/neorg",
-      cmd = "Neorg",
-      ft = "norg",
+      after = "nvim-treesitter",
       config = function()
          require "modules.configs.neorg"
       end,
       requires = "nvim-neorg/neorg-telescope",
-   }, ]]
+   },
 
    -- Zen mode
    {

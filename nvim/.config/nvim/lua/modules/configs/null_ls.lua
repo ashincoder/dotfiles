@@ -8,10 +8,6 @@ local formatter = null_ls.builtins.formatting
 local sources = {
    formatter.prettier,
    linter.yamllint,
-   formatter.trim_whitespace.with {
-      filetypes = { "teal", "org", "zsh", "norg" },
-   },
-
    -- Lua
    formatter.stylua,
    linter.luacheck.with {
@@ -31,8 +27,6 @@ local sources = {
       filetypes = { "sh", "bash", "zsh" },
       diagnostics_format = "#{m} [#{c}]",
    },
-
-   null_ls.builtins.hover.dictionary.with { filetypes = { "norg", "org", "txt", "markdown" } },
 }
 
 local M = {}
