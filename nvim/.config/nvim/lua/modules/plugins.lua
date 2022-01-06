@@ -79,7 +79,6 @@ return {
    -- Completion
    {
       "hrsh7th/nvim-cmp",
-      event = "BufRead",
       config = function()
          require "modules.configs.cmp"
       end,
@@ -103,6 +102,16 @@ return {
    {
       "hrsh7th/cmp-path",
       after = "cmp-buffer",
+   },
+
+   {
+      "hrsh7th/cmp-calc",
+      after = "cmp-path",
+   },
+
+   {
+      "kdheepak/cmp-latex-symbols",
+      after = "cmp-calc",
    },
 
    -- Neovim Lsp
@@ -231,6 +240,13 @@ return {
          require "modules.configs.neorg"
       end,
       requires = "nvim-neorg/neorg-telescope",
+   },
+
+   -- Latex note taking
+   --
+   {
+      "jbyuki/nabla.nvim",
+      event = "BufRead",
    },
 
    -- Zen mode

@@ -232,6 +232,8 @@ cmp.setup {
       { name = "nvim_lua" },
       { name = "orgmode" },
       { name = "neorg" },
+      { name = "calc" },
+      { name = "latex_symbols" },
    },
    formatting = {
       format = function(entry, item)
@@ -241,6 +243,9 @@ cmp.setup {
             path = "(Path)",
             luasnip = "(Snippet)",
             buffer = "(Buffer)",
+            calc = "(Calc)",
+            neorg = "(Neorg)",
+            latex_symbols = "(Latex)",
          })[entry.source.name]
          item.dup = ({
             buffer = 1,
