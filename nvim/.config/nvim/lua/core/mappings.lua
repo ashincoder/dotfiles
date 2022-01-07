@@ -76,7 +76,7 @@ keys.packer = function()
 end
 
 keys.telescope = function()
-   map("n", "<leader>f", ":lua require('telescope.builtin').find_files()<CR>", opts)
+   map("n", "<leader>f", ":Telescope find_files<CR>", opts)
    map(
       "n",
       "<leader>ff",

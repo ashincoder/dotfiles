@@ -13,6 +13,7 @@ neorg.setup {
          config = {
             icon_preset = "diamond",
             dim_code_blocks = true,
+            markup_preset = "dimmed",
          },
       },
       ["core.presenter"] = {
