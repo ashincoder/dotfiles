@@ -21,7 +21,19 @@ return {
    { "nathom/filetype.nvim" },
 
    -- Colorscheme
-   { "NTBBloodbath/doom-one.nvim" },
+   {
+      "NTBBloodbath/doom-one.nvim",
+      config = function()
+         require("doom-one").setup {
+            terminal_colors = true,
+            italic_comments = true,
+            plugins_integrations = {
+               telescope = true,
+            },
+         }
+      end,
+   },
+
    { "luisiacc/gruvbox-baby" },
 
    -- Dashboard
@@ -247,6 +259,11 @@ return {
    {
       "jbyuki/nabla.nvim",
       event = "BufRead",
+   },
+
+   {
+      "davidgranstrom/nvim-markdown-preview",
+      ft = "markdown",
    },
 
    -- Zen mode
