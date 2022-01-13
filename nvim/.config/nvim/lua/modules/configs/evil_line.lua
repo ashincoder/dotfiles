@@ -16,6 +16,15 @@ local colors = {
   red      = '#ec5f67',
 }
 
+-- When changing colors
+local theme = {
+   -- we are going to use lualine_c an lualine_x as left and
+   -- right section. both are highlighted by c theme .  so we
+   -- are just setting default looks o statusline
+   normal = { c = { fg = colors.fg, bg = colors.bg } },
+   inactive = { c = { fg = colors.fg, bg = colors.bg } },
+}
+
 local conditions = {
    buffer_not_empty = function()
       return vim.fn.empty(vim.fn.expand "%:t") ~= 1
@@ -38,13 +47,7 @@ local evilline = {
       component_separators = "",
       section_separators = "",
       disabled_filetypes = { "alpha", "dashboard" },
-      theme = {
-         -- we are going to use lualine_c an lualine_x as left and
-         -- right section. both are highlighted by c theme .  so we
-         -- are just setting default looks o statusline
-         normal = { c = { fg = colors.fg, bg = colors.bg } },
-         inactive = { c = { fg = colors.fg, bg = colors.bg } },
-      },
+      theme = "catppuccin",
    },
    sections = {
       -- these are to remove the defaults

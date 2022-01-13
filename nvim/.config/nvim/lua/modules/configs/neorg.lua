@@ -9,13 +9,7 @@ neorg.setup {
       ["core.defaults"] = {},
       ["core.highlights"] = {},
       ["core.norg.esupports"] = {},
-      ["core.norg.concealer"] = {
-         config = {
-            icon_preset = "diamond",
-            dim_code_blocks = true,
-            markup_preset = "dimmed",
-         },
-      },
+      ["core.norg.concealer"] = {},
       ["core.presenter"] = {
          config = {
             zen_mode = "zen-mode",

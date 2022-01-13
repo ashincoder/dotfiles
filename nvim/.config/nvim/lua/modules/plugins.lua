@@ -23,18 +23,19 @@ return {
    -- Colorscheme
    {
       "NTBBloodbath/doom-one.nvim",
+   },
+
+   {
+      "catppuccin/nvim",
+      as = "catppuccin",
       config = function()
-         require("doom-one").setup {
-            terminal_colors = true,
-            italic_comments = true,
-            plugins_integrations = {
-               telescope = true,
+         require("catppuccin").setup {
+            integrations = {
+               lightspeed = true,
             },
          }
       end,
    },
-
-   { "luisiacc/gruvbox-baby" },
 
    -- Dashboard
    {
@@ -50,11 +51,7 @@ return {
       "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         if vim.g.colors_name == "gruvbox-baby" then
-            require "modules.configs.gruvbox_express"
-         else
-            require "modules.configs.evil_line"
-         end
+         require "modules.configs.evil_line"
       end,
    },
 

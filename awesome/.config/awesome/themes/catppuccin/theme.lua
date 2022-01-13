@@ -1,6 +1,6 @@
 --[[
 
-     Gruvbox Dark Awesome WM theme
+     Catpuccin Dark Awesome WM theme
 
 --]]
 
@@ -14,19 +14,26 @@ local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme = {}
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
+
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/catppuccin"
 theme.wallpaper = theme.dir .. "/wall.png"
 theme.font = "JetBrains Mono Nerd Font 9"
-theme.fg_normal = "#ebdbb2"
-theme.fg_focus = "#ebdbb2"
-theme.fg_urgent = "#1A1A1A"
-theme.bg_normal = "#242424"
-theme.bg_focus = "#4b4c4d"
-theme.bg_urgent = "#cc241d"
 theme.border_width = dpi(2)
-theme.border_normal = "#617087"
-theme.border_focus = "#7F7F7F"
-theme.border_marked = "#CC9393"
+
+theme.bg_normal = "#222222"
+theme.bg_focus = "#535d6c"
+theme.bg_urgent = "#ff0000"
+theme.bg_minimize = "#444444"
+theme.bg_systray = theme.bg_normal
+
+theme.fg_normal = "#aaaaaa"
+theme.fg_focus = "#ffffff"
+theme.fg_urgent = "#ffffff"
+theme.fg_minimize = "#ffffff"
+theme.border_normal = "#000000"
+theme.border_focus = "#535d6c"
+theme.border_marked = "#91231c"
+
 theme.tasklist_bg_focus = "#1A1A1A"
 theme.titlebar_bg_focus = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
