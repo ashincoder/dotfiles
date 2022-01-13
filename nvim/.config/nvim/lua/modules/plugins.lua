@@ -74,7 +74,6 @@ return {
    {
       "L3MON4D3/LuaSnip",
       wants = "friendly-snippets",
-      after = "nvim-cmp",
       config = function()
          require("modules.configs.others").luasnip()
       end,
@@ -82,45 +81,29 @@ return {
 
    {
       "rafamadriz/friendly-snippets",
-      after = "cmp-buffer",
    },
 
    -- Completion
    {
-      "hrsh7th/nvim-cmp",
+      "ms-jpq/coq_nvim",
+      branch = "coq",
+      requires = {
+         { "ms-jpq/coq.artifacts", branch = "artifacts" },
+         {
+            "ms-jpq/coq.thirdparty",
+            branch = "3p",
+            config = function()
+               require "coq_3p" {
+                  { src = "nvimlua", short_name = "LUA" },
+                  { src = "bc", short_name = "MATH" },
+                  { src = "orgmode", short_name = "ORG" },
+               }
+            end,
+         },
+      },
       config = function()
-         require "modules.configs.cmp"
+         vim.g.coq_settings.autostart = true
       end,
-   },
-
-   {
-      "saadparwaiz1/cmp_luasnip",
-      after = "LuaSnip",
-   },
-
-   {
-      "hrsh7th/cmp-nvim-lua",
-      ft = "lua",
-   },
-
-   {
-      "hrsh7th/cmp-buffer",
-      after = "nvim-cmp",
-   },
-
-   {
-      "hrsh7th/cmp-path",
-      after = "cmp-buffer",
-   },
-
-   {
-      "hrsh7th/cmp-calc",
-      after = "cmp-path",
-   },
-
-   {
-      "kdheepak/cmp-latex-symbols",
-      after = "cmp-calc",
    },
 
    -- Neovim Lsp
@@ -140,11 +123,6 @@ return {
       config = function()
          require("modules.configs.null_ls").setup()
       end,
-   },
-
-   {
-      "hrsh7th/cmp-nvim-lsp",
-      after = "nvim-lspconfig",
    },
 
    {
