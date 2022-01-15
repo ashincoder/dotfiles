@@ -44,7 +44,13 @@ return {
       "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         require "modules.configs.evil_line"
+         if vim.g.colors_name == "doom-one" then
+            require "modules.configs.evil_line"
+         else
+            require("lualine").setup {
+               options = { theme = vim.g.colors_name },
+            }
+         end
       end,
    },
 
@@ -222,38 +228,12 @@ return {
       requires = "nvim-neorg/neorg-telescope",
    },
 
-   -- Latex note taking
-   --
-   {
-      "jbyuki/nabla.nvim",
-      event = "BufRead",
-   },
-
    {
       "davidgranstrom/nvim-markdown-preview",
       ft = "markdown",
    },
 
    -- Zen mode
-   {
-      "folke/zen-mode.nvim",
-      module = "zen-mode",
-      cmd = "ZenMode",
-      config = function()
-         require("zen-mode").setup {
-            window = {
-               backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-            },
-            options = {
-               numbers = true,
-               relativenumber = true,
-            },
-            plugins = {
-               gitsigns = { enabled = true },
-            },
-         }
-      end,
-   },
 
    -- Magit like neogit
    --[[ {
@@ -281,6 +261,14 @@ return {
       config = function()
          require "modules.configs.gitsigns"
       end,
+   },
+
+   -- Code runner
+   {
+      "michaelb/sniprun",
+      run = "bash ./install.sh",
+      cmd = "SnipRun",
+      module = "sniprun",
    },
 
    -- HEX code colorizer
