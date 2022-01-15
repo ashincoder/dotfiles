@@ -45,7 +45,6 @@ end
 
 --- Loops on the given configuration table
 --- @param configurations table
---- @return string
 function plugin_loader:load(configurations)
    plugin_loader:init()
    return require("packer").startup(function(use)
@@ -56,12 +55,5 @@ function plugin_loader:load(configurations)
       end
    end)
 end
-
-vim.cmd [[
-  augroup packer_plugins
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
-  augroup end
-]]
 
 return plugin_loader
