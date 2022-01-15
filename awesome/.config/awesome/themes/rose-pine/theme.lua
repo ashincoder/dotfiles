@@ -1,6 +1,6 @@
 --[[
 
-     Catpuccin Dark Awesome WM theme
+     Rose-pine Awesome WM theme
 
 --]]
 
@@ -15,26 +15,27 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme = {}
 
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/catppuccin"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/rose-pine"
 theme.wallpaper = theme.dir .. "/wall.png"
 theme.font = "JetBrains Mono Nerd Font 9"
 theme.border_width = dpi(2)
 
-theme.bg_normal = "#222222"
-theme.bg_focus = "#535d6c"
+theme.bg_normal = "#191724"
+theme.bg_focus = "#6e6a86"
 theme.bg_urgent = "#ff0000"
-theme.bg_minimize = "#444444"
+theme.bg_minimize = "#555169"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#aaaaaa"
+theme.fg_normal = "#e0d3f4"
 theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
-theme.border_normal = "#000000"
-theme.border_focus = "#535d6c"
+
+theme.border_normal = "#31748f"
+theme.border_focus = "#f6c177"
 theme.border_marked = "#91231c"
 
-theme.tasklist_bg_focus = "#1A1A1A"
+theme.tasklist_bg_focus = "#1f1d2e"
 theme.titlebar_bg_focus = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 theme.titlebar_fg_focus = theme.fg_focus

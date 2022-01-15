@@ -47,7 +47,7 @@ local evilline = {
       component_separators = "",
       section_separators = "",
       disabled_filetypes = { "alpha", "dashboard" },
-      theme = "catppuccin",
+      theme = "rose-pine",
    },
    sections = {
       -- these are to remove the defaults

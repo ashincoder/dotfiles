@@ -80,12 +80,12 @@ window:
   # GTK theme variant (Linux/BSD only)
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  # gtk_theme_variant: None
+  gtk_theme_variant: None
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  # history: 10000
 
   # Scrolling distance multiplier.
   multiplier: 5
@@ -144,7 +144,7 @@ font:
     # family: Hack
     # family: JetBrains Mono
     # family: JetBrainsMono Nerd Font
-    #family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
     family: Mononoki Nerd Font
@@ -189,81 +189,59 @@ font:
     y: 0
 
   # Thin stroke font rendering (macOS only)
-  #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  use_thin_strokes: false
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
-# colors:
-# DOOM-ONE
-# primary:
-#   background: "0x282c34"
-#   # background: "0x0F0E0D" # Dark
-#   foreground: "0xbbc2cf"
-#
-# # Normal colors
-# normal:
-#   black: "0x282c34"
-#   red: "0xff6c6b"
-#   green: "0x98be65"
-#   yellow: "0xecbe7b"
-#   blue: "0x51afef"
-#   magenta: "0xc678dd"
-#   cyan: "0x46d9ff"
-#   white: "0xbbc2cf"
-
-# Catppuccin!
 colors:
-  # Default colors
   primary:
-    background: "0x1E1D2F"
-    foreground: "0xD9E0EE"
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
+    background: "0x191724"
+    foreground: "0xe0def4"
   cursor:
-    text: "0x1E1D2F"
-    cursor: "0xF5E0DC"
-
-  # Normal colors
+    text: "0x191724"
+    cursor: "0x796268"
+  vi_mode_cursor:
+    text: "0x191724"
+    cursor: "0x796268"
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: "0x2A2738"
   normal:
-    black: "0x6E6C7E"
-    red: "0xF28FAD"
-    green: "0xABE9B3"
-    yellow: "0xFAE3B0"
-    blue: "0x96CDFB"
-    magenta: "0xF5C2E7"
-    cyan: "0x89DCEB"
-    white: "0xD9E0EE"
-
-  # Bright colors
+    black: "0x26233a"
+    red: "0xeb6f92"
+    green: "0x9ccfd8"
+    yellow: "0xf6c177"
+    blue: "0x31748f"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
   bright:
-    black: "0x988BA2"
-    red: "0xF28FAD"
-    green: "0xABE9B3"
-    yellow: "0xFAE3B0"
-    blue: "0x96CDFB"
-    magenta: "0xF5C2E7"
-    cyan: "0x89DCEB"
-    white: "0xD9E0EE"
-
-  indexed_colors:
-    - { index: 16, color: "0xF8BD96" }
-    - { index: 17, color: "0xF5E0DC" }
+    black: "0x6e6a86"
+    red: "0xeb6f92"
+    green: "0x9ccfd8"
+    yellow: "0xf6c177"
+    blue: "0x31748f"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
 
 # Background opacity
 #
 background_opacity: 0.9
 
-#selection:
+# selection:
 # This string contains all characters that are used as separators for
 # "semantic words" in Alacritty.
-#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+# semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
 # When set to `true`, selected text will be copied to the primary clipboard.
-#save_to_clipboard: false
+# save_to_clipboard: false
 
 cursor:
   # Cursor style
@@ -283,7 +261,7 @@ cursor:
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
-    blinking: on
+    blinking: "on"
 
   # Vi mode cursor style
   #
@@ -291,14 +269,14 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  # vi_mode_style: None
 
   # Cursor blinking interval in milliseconds.
-  #blink_interval: 750
+  # blink_interval: 750
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  # unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -311,7 +289,7 @@ live_config_reload: true
 # render_timer: true
 
 # Keep the log file after quitting Alacritty.
-#persistent_logging: false
+# persistent_logging: false
 
 # Log level
 #
@@ -322,7 +300,7 @@ live_config_reload: true
 #   - Info
 #   - Debug
 #   - Trace
-#log_level: Warn
+# log_level: Warn
 
 # Print all received window events.
-#print_events: false
+# print_events: false

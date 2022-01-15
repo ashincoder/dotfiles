@@ -6,6 +6,11 @@ return {
       end,
    },
 
+   {
+      "rose-pine/neovim",
+      as = "rose-pine",
+   },
+
    -- TODO: Remove this when https://github.com/neovim/neovim/pull/15436 gets into upstream
    {
       "lewis6991/impatient.nvim",
@@ -23,18 +28,6 @@ return {
    -- Colorscheme
    {
       "NTBBloodbath/doom-one.nvim",
-   },
-
-   {
-      "catppuccin/nvim",
-      as = "catppuccin",
-      config = function()
-         require("catppuccin").setup {
-            integrations = {
-               lightspeed = true,
-            },
-         }
-      end,
    },
 
    -- Dashboard
