@@ -1,7 +1,7 @@
 -- [[ GENERAL SETTINGS ]] --
 
 vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
-lvim.colorscheme = "doom-one"
+lvim.colorscheme = "rose-pine"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
@@ -89,7 +89,7 @@ lvim.plugins = {
 
 	-- Colorscheme
 	{ "NTBBloodbath/doom-one.nvim" },
-	{ "luisiacc/gruvbox-baby" },
+	{ "rose-pine/neovim", as = "rose-pine" },
 
 	-- Dashboard
 	{
