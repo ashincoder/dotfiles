@@ -350,7 +350,7 @@ _G.packer_plugins = {
     needs_bufread = false,
     only_cond = false,
     path = "/home/ashin/.local/share/lunarvim/site/pack/packer/opt/which-key.nvim",
-    url = "https://github.com/zeertzjq/which-key.nvim"
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

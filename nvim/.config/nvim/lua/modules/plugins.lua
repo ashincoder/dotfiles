@@ -48,7 +48,7 @@ return {
             require "modules.configs.evil_line"
          else
             require("lualine").setup {
-               options = { theme = vim.g.colors_name },
+               options = { theme = "rose-pine" },
             }
          end
       end,
@@ -69,39 +69,37 @@ return {
       module = "plenary",
    },
 
+   -- Completion engine
+   {
+      "hrsh7th/nvim-cmp",
+      modules = "cmp",
+      config = function()
+         require "modules.configs.cmp"
+      end,
+      requires = {
+         "hrsh7th/cmp-nvim-lsp",
+         "hrsh7th/cmp-path",
+         "saadparwaiz1/cmp_luasnip",
+         "hrsh7th/cmp-buffer",
+         "hrsh7th/cmp-nvim-lua",
+         "hrsh7th/cmp-calc",
+         "hrsh7th/cmp-cmdline",
+         "onsails/lspkind-nvim",
+      },
+   },
+
    -- Snippets
    {
       "L3MON4D3/LuaSnip",
+      after = "nvim-cmp",
       wants = "friendly-snippets",
-      config = function()
-         require("modules.configs.others").luasnip()
-      end,
-   },
-
-   {
-      "rafamadriz/friendly-snippets",
-   },
-
-   -- Completion
-   {
-      "ms-jpq/coq_nvim",
-      branch = "coq",
       requires = {
-         { "ms-jpq/coq.artifacts", branch = "artifacts" },
          {
-            "ms-jpq/coq.thirdparty",
-            branch = "3p",
-            config = function()
-               require "coq_3p" {
-                  { src = "nvimlua", short_name = "LUA" },
-                  { src = "bc", short_name = "MATH" },
-                  { src = "orgmode", short_name = "ORG" },
-               }
-            end,
+            "rafamadriz/friendly-snippets",
          },
       },
       config = function()
-         vim.g.coq_settings.autostart = true
+         require("modules.configs.others").luasnip()
       end,
    },
 
@@ -260,6 +258,15 @@ return {
       end,
       config = function()
          require "modules.configs.gitsigns"
+      end,
+   },
+
+   -- Pretty fold
+   {
+      "anuvyklack/pretty-fold.nvim",
+      config = function()
+         require("pretty-fold").setup {}
+         require("pretty-fold.preview").setup()
       end,
    },
 

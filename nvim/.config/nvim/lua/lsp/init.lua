@@ -12,9 +12,8 @@ local on_attach = function(client, bufnr)
 end
 -- stylua: ignore end
 
-vim.g.coq_settings = { auto_start = "shut-up" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("coq").lsp_ensure_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Setting up servers installed
 lsp_installer.on_server_ready(function(server)

@@ -58,7 +58,9 @@ options.load_options = function()
       timeoutlen = 300,
       undofile = true,
       updatetime = 250,
-      foldenable = true,
+      foldenable = false,
+      foldmethod = "expr",
+      foldexpr = "nvim_treesitter#foldexpr()",
       laststatus = 2,
       -- showtabline = 2,
    }
@@ -76,7 +78,6 @@ options.load_options = function()
       foldsep = "│",
    }
 
-   vim.cmd [[set foldtext=luaeval(\"require('core.autocmds').sugar_folds()\")]]
    vim.opt.shortmess:append "c"
    vim.opt.shortmess:append "sI"
    vim.opt.whichwrap:append "<>hl"
@@ -85,7 +86,9 @@ options.load_options = function()
    vim.opt.listchars:append "eol:↴"
    vim.opt.listchars:append "space: "
 
-   -- Custom settings
+   -- Color settings
+   ---@usage 'main' | 'moon' | 'dawn'
+   -- vim.g.rose_pine_variant = "dawn"
    vim.g.colors_name = "rose-pine" -- Colorscheme
    --
    for k, v in pairs(opts) do

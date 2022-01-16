@@ -61,8 +61,6 @@ keys.misc = function()
 
    -- Neogen Annotations
    map("n", "<leader> ", ":lua require('neogen').generate()<CR>", opts)
-   -- Nabla
-   map("n", "<leader>p", ":lua require('nabla').action()<CR>")
 
    map("n", "<Tab>", "za", opts)
 end
@@ -70,6 +68,7 @@ end
 keys.packer = function()
    map("n", "<leader>pi", ":PackerInstall<CR>")
    map("n", "<leader>pr", ":PackerCompile<CR>")
+   map("n", "<leader>pl", ":LuaCacheLog<CR>")
    map("n", "<leader>pc", ":PackerClean<CR>")
    map("n", "<leader>pu", ":PackerUpdate<CR>")
    map("n", "<leader>ps", ":PackerSync<CR>")

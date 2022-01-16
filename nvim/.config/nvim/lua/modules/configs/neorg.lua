@@ -52,6 +52,11 @@ neorg.setup {
             },
          },
       },
+      ["core.norg.completion"] = {
+         config = {
+            engine = "nvim-cmp",
+         },
+      },
       ["core.keybinds"] = {
          config = {
             default_keybinds = true,
