@@ -15,7 +15,7 @@ require("modules.sloppy_focus")
 -- Theme handling library
 local beautiful = require("beautiful")
 local themes = {
-	"rose-pine", -- 1
+	"tokyodark", -- 1
 	"doom-one", -- 2
 }
 

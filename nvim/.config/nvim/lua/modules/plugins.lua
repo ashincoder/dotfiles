@@ -6,11 +6,6 @@ return {
       end,
    },
 
-   {
-      "rose-pine/neovim",
-      as = "rose-pine",
-   },
-
    -- TODO: Remove this when https://github.com/neovim/neovim/pull/15436 gets into upstream
    {
       "lewis6991/impatient.nvim",
@@ -26,8 +21,18 @@ return {
    { "nathom/filetype.nvim" },
 
    -- Colorscheme
-   {
+   --[[ {
       "NTBBloodbath/doom-one.nvim",
+      config = function()
+         require("doom-one").setup {
+            italic_comments = true,
+         }
+      end,
+   }, ]]
+
+   {
+      "tiagovla/tokyodark.nvim",
+      "rebelot/kanagawa.nvim",
    },
 
    -- Dashboard
@@ -44,13 +49,9 @@ return {
       "nvim-lualine/lualine.nvim",
       event = "BufWinEnter",
       config = function()
-         if vim.g.colors_name == "doom-one" then
-            require "modules.configs.evil_line"
-         else
-            require("lualine").setup {
-               options = { theme = "rose-pine" },
-            }
-         end
+         require("lualine").setup {
+            options = { theme = "tokyodark" },
+         }
       end,
    },
 
@@ -78,6 +79,7 @@ return {
       end,
       requires = {
          "hrsh7th/cmp-nvim-lsp",
+         "hrsh7th/cmp-emoji",
          "hrsh7th/cmp-path",
          "saadparwaiz1/cmp_luasnip",
          "hrsh7th/cmp-buffer",
@@ -247,6 +249,11 @@ return {
    {
       "rcarriga/nvim-notify",
       event = "BufWinEnter",
+      config = function()
+         require("notify").setup {
+            timeout = 1000,
+         }
+      end,
    },
 
    -- Gitsigns and diffs
@@ -276,6 +283,15 @@ return {
       run = "bash ./install.sh",
       cmd = "SnipRun",
       module = "sniprun",
+   },
+
+   -- Math calc
+   {
+      "max397574/vmath.nvim",
+      cmd = "Vmath",
+      config = function()
+         require("vmath_nvim").init()
+      end,
    },
 
    -- HEX code colorizer

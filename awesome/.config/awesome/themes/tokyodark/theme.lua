@@ -1,6 +1,6 @@
 --[[
 
-     Rose-pine Awesome WM theme
+     Tokyodark Awesome WM theme
 
 --]]
 
@@ -15,27 +15,27 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme = {}
 
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/rose-pine"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/tokyodark"
 theme.wallpaper = theme.dir .. "/wall.png"
 theme.font = "JetBrains Mono Nerd Font 9"
 theme.border_width = dpi(2)
 
-theme.bg_normal = "#191724"
-theme.bg_focus = "#6e6a86"
-theme.bg_urgent = "#ff0000"
-theme.bg_minimize = "#555169"
+theme.bg_normal = "#11121D"
+theme.bg_focus = "#392B41"
+theme.bg_urgent = "#FE6D85"
+theme.bg_minimize = "#4A5057"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#e0d3f4"
+theme.fg_normal = "#A0A8CD"
 theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
-theme.border_normal = "#31748f"
-theme.border_focus = "#f6c177"
+theme.border_normal = "#38A89D"
+theme.border_focus = "#A485DD"
 theme.border_marked = "#91231c"
 
-theme.tasklist_bg_focus = "#1f1d2e"
+theme.tasklist_bg_focus = "#1A1B2A"
 theme.titlebar_bg_focus = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 theme.titlebar_fg_focus = theme.fg_focus

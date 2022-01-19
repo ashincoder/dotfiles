@@ -1,4 +1,5 @@
 local utils = require "core.utils"
+
 local map = utils.map
 
 local opts = { silent = true, noremap = true }
@@ -63,6 +64,8 @@ keys.misc = function()
    map("n", "<leader> ", ":lua require('neogen').generate()<CR>", opts)
 
    map("n", "<Tab>", "za", opts)
+
+   map("i", "<C-H>", "<C-W>", opts)
 end
 
 keys.packer = function()

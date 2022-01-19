@@ -1,7 +1,7 @@
 -- [[ GENERAL SETTINGS ]] --
 
 vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
-lvim.colorscheme = "rose-pine"
+lvim.colorscheme = "doom-one"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 

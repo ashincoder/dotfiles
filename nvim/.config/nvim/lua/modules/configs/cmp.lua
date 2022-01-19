@@ -67,6 +67,7 @@ cmp.setup {
             nvim_lua = "[Lua]",
             calc = "[Calc]",
             neorg = "[Neorg]",
+            emoji = "[Emoji]",
             orgmode = "[Org]",
          },
       },
@@ -136,6 +137,7 @@ cmp.setup {
       { name = "neorg" },
       { name = "orgmode" },
       { name = "calc" },
+      { name = "emoji" },
    },
 }
 
@@ -143,14 +145,13 @@ cmp.setup {
 cmp.setup.cmdline("/", {
    completion = { autocomplete = false },
    sources = {
-      -- { name = 'buffer' }
-      { name = "buffer", opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
+      { name = "buffer" },
    },
 })
 
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(":", {
-   completion = { autocomplete = false },
+   completion = { autocomplete = true },
    sources = cmp.config.sources({
       { name = "path" },
    }, {

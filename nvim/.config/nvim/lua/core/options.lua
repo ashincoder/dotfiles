@@ -87,9 +87,7 @@ options.load_options = function()
    vim.opt.listchars:append "space: "
 
    -- Color settings
-   ---@usage 'main' | 'moon' | 'dawn'
-   -- vim.g.rose_pine_variant = "dawn"
-   vim.g.colors_name = "rose-pine" -- Colorscheme
+   vim.g.colors_name = "tokyodark"
    --
    for k, v in pairs(opts) do
       vim.opt[k] = v

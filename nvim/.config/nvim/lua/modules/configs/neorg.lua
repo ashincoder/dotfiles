@@ -20,6 +20,7 @@ neorg.setup {
          config = {
             workspaces = {
                my_workspace = "~/Neorg",
+               my_notes = "~/Neorg/notes",
                gtd = "~/Neorg/gtd",
             },
          },
