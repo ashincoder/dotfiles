@@ -32,6 +32,8 @@
 #set recolor                     "false"
 #set recolor-keephue             "false"
 
+#################################################
+
 # Tokyodark
 
 # Light/Default mode settings:
@@ -72,3 +74,10 @@ set render-loading-bg           "#A0A8CD"
 # Recolor mode settings
 set recolor-lightcolor          "#11121D" # Background
 set recolor-darkcolor           "#A0A8CD" # Foreground
+
+
+# Settings
+
+set recolor true
+map K zoom in
+map J zoom out

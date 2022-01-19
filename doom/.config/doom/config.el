@@ -41,7 +41,6 @@
              "TODO(t)"
              "PROJ(p)"
              "STUDY(s)"
-             "ASSIGNMENT(h)"
              "|"
              "WAIT(w)"
              "CANCELLLED(c)"
@@ -57,7 +56,4 @@
 (setq lsp-ui-sideline-enable nil   ; not anymore useful than flycheck
       lsp-ui-doc-enable nil        ; slow and redundant with K
       lsp-enable-symbol-highlighting nil
-      ;; If an LSP server isn't present when I start a prog-mode buffer, you
-      ;; don't need to tell me. I know. On some systems I don't care to have a
-      ;; whole development environment for some ecosystems.
       +lsp-prompt-to-install-server 'quiet)
