@@ -171,7 +171,7 @@ _G.packer_plugins = {
     needs_bufread = false,
     only_cond = false,
     path = "/home/ashin/.local/share/lunarvim/site/pack/packer/opt/lua-dev.nvim",
-    url = "https://github.com/kylo252/lua-dev.nvim"
+    url = "https://github.com/folke/lua-dev.nvim"
   },
   ["lualine.nvim"] = {
     config = { "\27LJ\1\2?\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\22lvim.core.lualine\frequire\0" },
@@ -307,11 +307,6 @@ _G.packer_plugins = {
     path = "/home/ashin/.local/share/lunarvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/home/ashin/.local/share/lunarvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["structlog.nvim"] = {
     loaded = true,
     path = "/home/ashin/.local/share/lunarvim/site/pack/packer/start/structlog.nvim",
@@ -335,6 +330,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/ashin/.local/share/lunarvim/site/pack/packer/opt/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["tokyodark.nvim"] = {
+    loaded = true,
+    path = "/home/ashin/.local/share/lunarvim/site/pack/packer/start/tokyodark.nvim",
+    url = "https://github.com/tiagovla/tokyodark.nvim"
   },
   ["vim-matchup"] = {
     after_files = { "/home/ashin/.local/share/lunarvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },

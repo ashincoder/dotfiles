@@ -32,7 +32,6 @@ return {
 
    {
       "tiagovla/tokyodark.nvim",
-      "rebelot/kanagawa.nvim",
    },
 
    -- Dashboard
