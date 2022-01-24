@@ -45,12 +45,10 @@ return {
 
    -- Statusline
    {
-      "nvim-lualine/lualine.nvim",
+      "rebelot/heirline.nvim",
       event = "BufWinEnter",
       config = function()
-         require("lualine").setup {
-            options = { theme = "tokyodark" },
-         }
+         require "modules.configs.statusline"
       end,
    },
 
@@ -85,7 +83,7 @@ return {
          "hrsh7th/cmp-nvim-lua",
          "hrsh7th/cmp-calc",
          "hrsh7th/cmp-cmdline",
-         "onsails/lspkind-nvim",
+         { "onsails/lspkind-nvim", modules = "lspkind" },
       },
    },
 
@@ -175,29 +173,6 @@ return {
             enabled = true,
          }
       end,
-   },
-
-   -- Orgmode
-   {
-      "kristijanhusak/orgmode.nvim",
-      ft = { "org" },
-      config = function()
-         require("orgmode").setup {
-            diagnostics = true,
-            org_hide_leading_stars = true,
-            org_ellipsis = " ▼",
-            -- org_indent_mode = "noindent",
-         }
-      end,
-      requires = {
-         {
-            "akinsho/org-bullets.nvim",
-            ft = { "org" },
-            config = function()
-               require("org-bullets").setup {}
-            end,
-         },
-      },
    },
 
    -- More than a fuzzy finder
