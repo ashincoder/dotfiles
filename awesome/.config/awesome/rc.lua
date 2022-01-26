@@ -19,7 +19,7 @@ local themes = {
 	"doom-one", -- 2
 }
 
-local chosen_theme = themes[1]
+local chosen_theme = themes[2]
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 

@@ -22,14 +22,13 @@ parser_configs.norg_table = {
 
 ts_config.setup {
    ensure_installed = {
+      "c",
       "lua",
       "bash",
       "css",
       "html",
       "javascript",
       "python",
-      "c",
-      "nix",
       "comment",
       "yaml",
       "markdown",
@@ -40,7 +39,7 @@ ts_config.setup {
    highlight = {
       enable = true,
       use_languagetree = true,
-      additional_vim_regex_highlighting = false and { "org", "norg" },
+      additional_vim_regex_highlighting = { "org", "norg" },
    },
    autopairs = { enable = true },
    indent = { enable = true },

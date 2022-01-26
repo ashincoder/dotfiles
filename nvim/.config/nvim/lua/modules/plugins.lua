@@ -21,14 +21,14 @@ return {
    { "nathom/filetype.nvim" },
 
    -- Colorscheme
-   --[[ {
+   {
       "NTBBloodbath/doom-one.nvim",
       config = function()
          require("doom-one").setup {
             italic_comments = true,
          }
       end,
-   }, ]]
+   },
 
    {
       "tiagovla/tokyodark.nvim",
@@ -199,7 +199,9 @@ return {
       config = function()
          require "modules.configs.neorg"
       end,
-      requires = "nvim-neorg/neorg-telescope",
+      requires = {
+         { "nvim-neorg/neorg-telescope" },
+      },
    },
 
    {

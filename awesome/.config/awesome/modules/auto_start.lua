@@ -10,7 +10,7 @@ local processes = {
 	-- Cursor
 	"xsetroot -cursor_name left_ptr &",
 	-- Emacs daemon
-	-- "/usr/bin/emacs --daemon",
+	"/usr/bin/emacs --daemon",
 }
 
 local function run_once(cmd)

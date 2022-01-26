@@ -3,7 +3,7 @@
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; Theme
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-one)
 
 ;; Modeline
 (setq doom-modeline-height 30     ;; sets modeline height

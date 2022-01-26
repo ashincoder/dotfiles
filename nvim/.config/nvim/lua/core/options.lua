@@ -87,7 +87,7 @@ options.load_options = function()
    vim.opt.listchars:append "space: "
 
    -- Color settings
-   vim.g.colors_name = "tokyodark"
+   vim.g.colors_name = "doom-one"
    --
    for k, v in pairs(opts) do
       vim.opt[k] = v
