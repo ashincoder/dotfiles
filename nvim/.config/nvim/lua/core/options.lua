@@ -63,6 +63,8 @@ options.load_options = function()
       foldexpr = "nvim_treesitter#foldexpr()",
       laststatus = 2,
       -- showtabline = 2,
+      conceallevel = 2,
+      concealcursor = "nc",
    }
    vim.g.did_load_filetypes = 1
    vim.g.mapleader = " "

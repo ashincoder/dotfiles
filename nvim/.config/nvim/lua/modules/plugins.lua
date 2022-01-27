@@ -205,6 +205,22 @@ return {
    },
 
    {
+      "nvim-orgmode/orgmode",
+      ft = { "org" },
+      config = function()
+         require "modules.configs.org"
+      end,
+      requires = {
+         {
+            "akinsho/org-bullets.nvim",
+            config = function()
+               require("org-bullets").setup {}
+            end,
+         },
+      },
+   },
+
+   {
       "davidgranstrom/nvim-markdown-preview",
       ft = "markdown",
    },
