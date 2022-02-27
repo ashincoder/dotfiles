@@ -17,6 +17,9 @@ alias sxiv='devour sxiv'
 ## LazyGit
 alias lg='lazygit'
 
+#todo
+alias todo='nvim ~/Neorg/gtd/inbox.norg'
+
 # Doom Emacs
 alias em="/usr/bin/emacs -nw"
 alias doomsync="~/.emacs.d/bin/doom sync"

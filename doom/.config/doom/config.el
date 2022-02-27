@@ -2,6 +2,9 @@
 ;; Get file icons in dired
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+;; Relative line number mode
+(menu-bar--display-line-numbers-mode-relative)
+
 ;; Theme
 (setq doom-theme 'doom-one)
 
@@ -29,7 +32,7 @@
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq org-directory "~/Org/"
-        org-agenda-files '("~/Org/agendas/")
+        org-agenda-files '("~/Org/")
         org-notes-files '("~/Org/notes/")
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")

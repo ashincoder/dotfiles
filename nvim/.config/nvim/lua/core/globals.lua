@@ -21,4 +21,3 @@ R = function(name)
 end
 
 require "modules.builtin.mkdir"
-require "modules.builtin.notify"

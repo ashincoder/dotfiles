@@ -1,4 +1,4 @@
--- [[ GENERAL SETTINGS ]] --
+-- [[GENERAL SETTINGS ]] --
 
 vim.g.did_load_filetypes = 1 -- Disabling native filetype checker
 lvim.colorscheme = "doom-one"
@@ -181,6 +181,7 @@ lvim.plugins = {
 
 lvim.builtin.terminal.active = true
 lvim.builtin.notify.active = true
+lvim.builtin.bufferline.active = true
 require("ashin.mkdir")
 
 local tbl = vim.deepcopy(lvim.builtin.cmp.sources)

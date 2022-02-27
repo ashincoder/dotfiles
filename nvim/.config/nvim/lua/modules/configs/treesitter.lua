@@ -41,6 +41,7 @@ ts_config.setup {
       "comment",
       "yaml",
       "markdown",
+      "org",
       "norg",
       "norg_meta",
       "norg_table",

@@ -75,7 +75,7 @@ return {
          require "modules.configs.cmp"
       end,
       requires = {
-         "hrsh7th/cmp-nvim-lsp",
+         { "hrsh7th/cmp-nvim-lsp", after = "nvim-lspconfig" },
          "hrsh7th/cmp-emoji",
          "hrsh7th/cmp-path",
          "saadparwaiz1/cmp_luasnip",
@@ -126,6 +126,14 @@ return {
       module = "lsp_signature",
       config = function()
          require("modules.configs.others").signature()
+      end,
+   },
+
+   {
+      "j-hui/fidget.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("fidget").setup {}
       end,
    },
 
